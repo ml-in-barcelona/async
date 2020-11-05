@@ -1,0 +1,6 @@
+(executables
+ (names migrate rollback)
+ (public_names migrate_async_app rollback_async_app)
+ (libraries async_app lwt)
+ (preprocess
+  (pps ppx_rapper)))

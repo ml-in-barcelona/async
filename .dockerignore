@@ -1,0 +1,16 @@
+_build*
+.vscode*
+.merlin
+README.md
+async_app.install
+*.swp
+_opam
+Dockerfile
+.dockerignore
+.ocamlformat
+docker.yml
+node_modules
+*.bs.js
+server/static/Index.js*
+/shared/gen/*.ml*
+

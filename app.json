@@ -1,0 +1,17 @@
+{
+  "name": "async_app",
+  "description": "",
+  "website": "https://ocaml-webapp.herokuapp.com/",
+  "stack": "container",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+      "options": {
+        "version": "12"
+      }
+    }
+  ],
+  "scripts": {
+    "postdeploy": "./migrate.exe"
+  }
+}

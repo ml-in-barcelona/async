@@ -1,0 +1,4 @@
+(executable
+ (public_name async_app)
+ (name main)
+ (libraries async_app opium))

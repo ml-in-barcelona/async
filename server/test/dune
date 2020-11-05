@@ -1,0 +1,3 @@
+(test
+ (name async_app)
+ (libraries opium))
