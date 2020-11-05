@@ -1,7 +1,7 @@
 {
   "name": "async_app",
   "description": "",
-  "website": "https://ocaml-webapp.herokuapp.com/",
+  "website": "https://async.herokuapp.com/",
   "stack": "container",
   "addons": [
     {
