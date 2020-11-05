@@ -1,7 +1,7 @@
 {
   "name": "async_app",
   "description": "",
-  "website": "https://async.herokuapp.com/",
+  "website": "https://async-preview.herokuapp.com/",
   "stack": "container",
   "addons": [
     {
