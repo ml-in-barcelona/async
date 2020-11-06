@@ -2,7 +2,7 @@
 (generate_opam_files true)
 
 (name async_app)
-(version 0.1.0)
+(version 0.0.1)
 
 (authors "davesnx")
 (license "BSD-2")
@@ -14,8 +14,8 @@
 
 (package
  (name async_app)
- (synopsis "async app synopsis")
- (description "async app description")
+ (synopsis "Async app synopsis")
+ (description "Async app description")
  (depends
   ;; General system dependencies
   (dune (>= 2))
