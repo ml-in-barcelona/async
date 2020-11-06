@@ -1,3 +1,5 @@
+open Async_app;
+
 let create_excerpts_table = [%rapper
   execute(
     {sql|
