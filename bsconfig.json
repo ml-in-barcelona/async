@@ -6,11 +6,11 @@
   "generators": [
     {
       "name": "atd_t",
-      "command": "dirname=$$(dirname $in) && basename=$$(basename $in .atd) && atdgen -t $in -o $$dirname/gen/$$basename"
+      "command": "dirname=$$(dirname $in) && basename=$$(basename $in .atd) && opam exec -- atdgen -t $in -o $$dirname/gen/$$basename"
     },
     {
       "name": "atd_bs",
-      "command": "dirname=$$(dirname $in) && basename=$$(basename $in .atd) && atdgen -bs $in -o $$dirname/gen/$$basename"
+      "command": "dirname=$$(dirname $in) && basename=$$(basename $in .atd) && opam exec -- atdgen -bs $in -o $$dirname/gen/$$basename"
     }
   ],
   "sources": [
@@ -26,32 +26,65 @@
       "generators": [
         {
           "name": "atd_t",
-          "edge": ["excerpt_t.ml", "excerpt_t.mli", ":", "../excerpt.atd"]
+          "edge": [
+            "excerpt_t.ml",
+            "excerpt_t.mli",
+            ":",
+            "../excerpt.atd"
+          ]
         },
         {
           "name": "atd_bs",
-          "edge": ["excerpt_bs.ml", "excerpt_bs.mli", ":", "../excerpt.atd"]
+          "edge": [
+            "excerpt_bs.ml",
+            "excerpt_bs.mli",
+            ":",
+            "../excerpt.atd"
+          ]
         },
         {
           "name": "atd_t",
-          "edge": ["pageAuthorExcerpts_t.ml", "pageAuthorExcerpts_t.mli", ":", "../pageAuthorExcerpts.atd"]
+          "edge": [
+            "pageAuthorExcerpts_t.ml",
+            "pageAuthorExcerpts_t.mli",
+            ":",
+            "../pageAuthorExcerpts.atd"
+          ]
         },
         {
           "name": "atd_bs",
-          "edge": ["pageAuthorExcerpts_bs.ml", "pageAuthorExcerpts_bs.mli", ":", "../pageAuthorExcerpts.atd"]
+          "edge": [
+            "pageAuthorExcerpts_bs.ml",
+            "pageAuthorExcerpts_bs.mli",
+            ":",
+            "../pageAuthorExcerpts.atd"
+          ]
         },
         {
           "name": "atd_t",
-          "edge": ["pageExcerpts_t.ml", "pageExcerpts_t.mli", ":", "../pageExcerpts.atd"]
+          "edge": [
+            "pageExcerpts_t.ml",
+            "pageExcerpts_t.mli",
+            ":",
+            "../pageExcerpts.atd"
+          ]
         },
         {
           "name": "atd_bs",
-          "edge": ["pageExcerpts_bs.ml", "pageExcerpts_bs.mli", ":", "../pageExcerpts.atd"]
+          "edge": [
+            "pageExcerpts_bs.ml",
+            "pageExcerpts_bs.mli",
+            ":",
+            "../pageExcerpts.atd"
+          ]
         }
       ]
     }
   ],
-  "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
+  "bsc-flags": [
+    "-bs-super-errors",
+    "-bs-no-version-header"
+  ],
   "package-specs": [
     {
       "module": "es6",
