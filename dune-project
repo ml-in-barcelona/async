@@ -20,6 +20,7 @@
   ;; General system dependencies
   (dune (>= 2))
   (ocaml (>= 4.10.0))
+  (core (>= 0.14.0))
 
   ;; Database interface
   (caqti (>= 1.2.1))
@@ -30,7 +31,7 @@
   ;; Web toolkit
   (opium (>= 0.17.1))
   (routes (and (>= 0.8.0) (< 0.9.0)))
-  (reason (>= 3.6.0))
+  (reason (and (>= 3.6.0) (< 4.0.0)))
   (uri (and (>= 3.1.0) (< 4.0.0)))
   (atdgen (and (>= 2.2.1) (< 2.3.0)))
 
@@ -41,4 +42,5 @@
 
   ;; Dev dependencies
   (ocamlformat :dev)
+  (ocaml-lsp-server :dev)
 ))
