@@ -48,11 +48,22 @@ Open the browser and go to http://localhost:3000/.
 
 It's also possible to get hot reloading while developing. For that, start the server (to be able to serve API requests) with `make run`, run BuckleScript in `yarn start` and then start Webpack dev server with `yarn server`.
 
-### Run databases locally
+### Set up database locally
 
 ```
 docker-compose -f docker-compose.dev.yml up -d
 ```
+
+Open `localhost:8080` in the browser, login with `admin@server.com` and `secret`.
+
+In pgadmin, go to "Create server". Enter `local` as name, and in the Connection tab, enter:
+- `pgsql-server` as "Host name / address"
+- user `admin`
+- password `secret`
+
+Then, right click in `local`, "Create" -> "Database", and create a new database with name `async_app`.
+
+Finally, `make migrate`.
 
 ### Deploying to Heroku
 

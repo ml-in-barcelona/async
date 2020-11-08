@@ -28,11 +28,11 @@ run-debug:
 
 # Run the database migrations defined in migrate/migrate.ml
 migrate:
-	DATABASE_URL=$(db_uri) dune exec migrate_async_app
+	DATABASE_URL=$(db_uri) dune exec migrate
 
 # Run the database rollback defined in migrate/rollback.ml
 rollback:
-	DATABASE_URL=$(db_uri) dune exec rollback_async_app
+	DATABASE_URL=$(db_uri) dune exec rollback
 
 # Update the package dependencies when new deps are added to dune-project
 $(opam_file): dune-project
