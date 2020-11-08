@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := run
+
 project_name = async_app
 
 opam_file = $(project_name).opam
@@ -35,6 +37,4 @@ rollback:
 # Update the package dependencies when new deps are added to dune-project
 $(opam_file): dune-project
 	-dune build @install        # Update the $(project_name).opam file
-	-git add $(opam_file)       # opam uses the state of master for it updates
-	-git commit $(opam_file) -m "Updating package dependencies"
 	opam install . --deps-only  # Install the new dependencies
