@@ -16,6 +16,7 @@ COPY . .
 RUN sudo chown -R opam:nogroup . && \
     opam exec dune build && \
     opam depext -ln async_app > depexts
+RUN dune test --force
 
 # Build client app
 FROM node:12.18.3-buster as client

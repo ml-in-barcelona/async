@@ -18,6 +18,9 @@ deps: $(opam_file)
 fmt:
 	dune build @fmt --auto-promote
 
+test:
+	@dune test --force
+
 # Build and run the app
 run:
 	DATABASE_URL=$(db_uri) dune exec $(project_name)
