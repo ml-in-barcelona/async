@@ -41,6 +41,5 @@
   (tyxml-syntax :dev)
 
   ;; Dev dependencies
-  (ocamlformat :dev)
   (ocaml-lsp-server :dev)
 ))
