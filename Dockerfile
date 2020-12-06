@@ -4,18 +4,18 @@ WORKDIR /async_app
 
 # Install dependencies
 COPY async_app.opam .
-RUN opam pin add -yn async_app . && \
-    opam depext async_app && \
-    opam install . --deps-only
+RUN opam pin add -yn async_app .
+RUN opam depext async_app
+RUN opam install . --deps-only
 
 # Build the server app. Note: The chown is somehow necessary, as
 # without it the `dune build` command will fail with
 # permission errors.
 # We also need to take note of the dependencies from depext.
 COPY . .
-RUN sudo chown -R opam:nogroup . && \
-    opam exec dune build && \
-    opam depext -ln async_app > depexts
+RUN sudo chown -R opam:nogroup .
+RUN opam exec dune build
+RUN opam depext -ln async_app > depexts
 RUN dune test --force
 
 # Build client app
