@@ -77,6 +77,6 @@ this will be fixed [soon](https://github.com/jchavarri/async_app/issues/1).
 
 ### Resources
 
-- Amazing tutorial to create a lightweight OCaml webapp: https://shonfeder.gitlab.io/async_app/
+- Amazing tutorial to create a lightweight OCaml webapp: https://shonfeder.gitlab.io/ocaml_webapp/
 - Deploying native Reason/OCaml with Zeit's now.sh: https://jaredforsyth.com/posts/deploying-native-reason-ocaml-with-now-sh/
 - Deploying OCaml server on Heroku: https://medium.com/@aleksandrasays/deploying-ocaml-server-on-heroku-f91dcac11f11

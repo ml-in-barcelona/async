@@ -7,7 +7,7 @@ open Lwt.Syntax
 let default_head =
   let open Html in
   head
-    (title (txt "Webapp"))
+    (title (txt "Async webapp"))
     [
       meta ~a:[ a_charset "UTF-8" ] ();
       meta
@@ -18,7 +18,7 @@ let default_head =
         ~a:[ a_mime_type "image/x-icon" ]
         ~href:"/static/favicon.ico" ();
       link ~rel:[ `Stylesheet ]
-        ~href:"https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.min.css" ();
+        ~href:"https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" ();
     ]
 
 (** The basic page layout, emitted as an [`Html string] which Opium can use as a
@@ -127,13 +127,13 @@ let create_middleware ~router =
   let filter handler req =
     let target = Request.uri req |> Uri.path |> Uri.pct_decode in
     let meth = Request.meth req in
-    match Shared.MethodRoutes.match' ~meth ~target router with
+    match Shared.Method_routes.match' ~meth ~target router with
     | None -> handler req
     | Some h -> h req
   in
   Rock.Middleware.create ~name:"Routes" ~filter
 
-let m = create_middleware ~router:(Shared.MethodRoutes.one_of Router.routes)
+let m = create_middleware ~router:(Shared.Method_routes.one_of Router.routes)
 
 let four_o_four =
   not_found (fun _req -> respond' @@ basic_page [ Shared.PageNotFound.make () ])
