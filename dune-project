@@ -1,4 +1,4 @@
-(lang dune 2.0)
+(lang dune 2.2)
 (generate_opam_files true)
 
 (name async_app)
@@ -41,4 +41,5 @@
   (tyxml-syntax :dev)
 
   ;; Dev dependencies
+  (alcotest (>= 1.2.3) :dev)
 ))
