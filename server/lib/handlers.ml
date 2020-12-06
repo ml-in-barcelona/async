@@ -18,7 +18,7 @@ let default_head =
         ~a:[ a_mime_type "image/x-icon" ]
         ~href:"/static/favicon.ico" ();
       link ~rel:[ `Stylesheet ]
-        ~href:"https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" ();
+        ~href:"./styles.css" ();
     ]
 
 (** The basic page layout, emitted as an [`Html string] which Opium can use as a

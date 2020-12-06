@@ -9,16 +9,20 @@
     "webpack:dev": "webpack",
     "webpack:production": "NODE_ENV=production webpack",
     "server": "webpack-dev-server",
-    "start": "concurrently -k --names reason,webpack 'yarn server' 'yarn watch'",
+    "start": "concurrently -k --names webpack,reason 'yarn server' 'yarn watch'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@ahrefs/bs-atdgen-codec-runtime": "^2.0.1",
     "@anuragsoni/routes": "^0.8.0",
+    "autoprefixer": "^10.0.4",
     "bs-fetch": "^0.6.2",
+    "postcss": "^8.1.14",
+    "postcss-loader": "^4.1.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "reason-react": ">=0.7.1"
+    "reason-react": ">=0.7.1",
+    "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
     "bs-platform": "^8.0.3",
