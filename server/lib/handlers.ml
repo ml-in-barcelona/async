@@ -127,13 +127,13 @@ let create_middleware ~router =
   let filter handler req =
     let target = Request.uri req |> Uri.path |> Uri.pct_decode in
     let meth = Request.meth req in
-    match Shared.Method_routes.match' ~meth ~target router with
+    match Shared.MethodRoutes.match' ~meth ~target router with
     | None -> handler req
     | Some h -> h req
   in
   Rock.Middleware.create ~name:"Routes" ~filter
 
-let m = create_middleware ~router:(Shared.Method_routes.one_of Router.routes)
+let m = create_middleware ~router:(Shared.MethodRoutes.one_of Router.routes)
 
-let four_o_four =
-  not_found (fun _req -> respond' @@ basic_page [ Shared.PageNotFound.make () ])
+(* let four_o_four =
+  not_found (fun _req -> respond' @@ basic_page [ Shared.PageNotFound.make () ]) *)
