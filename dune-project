@@ -41,5 +41,4 @@
   (tyxml-syntax :dev)
 
   ;; Dev dependencies
-  (alcotest (= 1.2.3))
 ))

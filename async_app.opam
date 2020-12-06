@@ -25,7 +25,6 @@ depends: [
   "tyxml" {dev}
   "tyxml-jsx" {dev}
   "tyxml-syntax" {dev}
-  "alcotest" {= "1.2.3"}
 ]
 build: [
   ["dune" "subst"] {pinned}
