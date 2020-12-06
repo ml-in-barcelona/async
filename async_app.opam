@@ -22,6 +22,7 @@ depends: [
   "reason" {>= "3.6.0" & < "4.0.0"}
   "uri" {>= "3.1.0" & < "4.0.0"}
   "atdgen" {>= "2.2.1" & < "2.3.0"}
+  "alcotest" {>= "1.2.3"}
   "tyxml" {dev}
   "tyxml-jsx" {dev}
   "tyxml-syntax" {dev}
