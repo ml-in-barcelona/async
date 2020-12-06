@@ -25,7 +25,6 @@ depends: [
   "tyxml" {dev}
   "tyxml-jsx" {dev}
   "tyxml-syntax" {dev}
-  "ocamlformat" {dev}
   "ocaml-lsp-server" {dev}
 ]
 build: [
