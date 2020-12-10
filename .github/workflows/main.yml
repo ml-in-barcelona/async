@@ -17,34 +17,4 @@ jobs:
         run: docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASS }}
       - name: Build base from dockerfile
         run: |
-          docker build \
-            --target base \
-            --cache-from $CACHE_IMAGE:base \
-            --tag $CACHE_IMAGE:base \
-            --file ./Dockerfile \
-            "."
-      - name: Build client from dockerfile
-        run: |
-          docker build \
-            --target client \
-            --cache-from $CACHE_IMAGE:base \
-            --cache-from $CACHE_IMAGE:client \
-            --tag $CACHE_IMAGE:client \
-            --file ./Dockerfile \
-            "."
-      - name: Build stage from dockerfile
-        run: |
-          docker build \
-            --target stage \
-            --cache-from $CACHE_IMAGE:base \
-            --cache-from $CACHE_IMAGE:client \
-            --cache-from $CACHE_IMAGE:stage \
-            --tag $CACHE_IMAGE:stage \
-            --file ./Dockerfile \
-            "."
-      - name: Push base image to docker hub
-        run: docker push $CACHE_IMAGE:base
-      - name: Push client image to docker hub
-        run: docker push $CACHE_IMAGE:client
-      - name: Push stage image to docker hub
-        run: docker push $CACHE_IMAGE:stage
+          echo "run heroku"
