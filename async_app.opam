@@ -25,6 +25,7 @@ depends: [
   "tyxml" {dev}
   "tyxml-jsx" {dev}
   "tyxml-syntax" {dev}
+  "ocaml-lsp-server" {dev}
 ]
 build: [
   ["dune" "subst"] {pinned}

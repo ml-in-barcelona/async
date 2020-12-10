@@ -7,8 +7,8 @@ env:
   DOCKER_BUILDKIT: 1
 
 jobs:
-  build:
-    name: Build app
+  build-docker:
+    name: Build Docker
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master
@@ -51,3 +51,56 @@ jobs:
         run: docker push $CACHE_IMAGE:client
       - name: Push stage image to docker hub
         run: docker push $CACHE_IMAGE:stage
+  build-and-test:
+    name: Build and Test
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+
+        ocaml-version:
+          - 4.10.1
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Retrieve opam cache
+        uses: actions/cache@v2
+        if: runner.os != 'Windows'
+        id: cache-opam
+        with:
+          path: ~/.opam
+          key: v1-${{ runner.os }}-opam-${{ matrix.ocaml-version }}-${{ hashFiles('*.opam.locked') }}
+          restore-keys: |
+            v1-${{ runner.os }}-opam-${{ matrix.ocaml-version }}-
+      - name: Use latest LTS Node.js release
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Use OCaml ${{ matrix.ocaml-version }}
+        uses: avsm/setup-ocaml@v1
+        with:
+          ocaml-version: ${{ matrix.ocaml-version }}
+
+      - name: Print OCaml version
+        run: opam exec -- ocaml --version
+
+      - name: Install Opam dependencies
+        if: steps.cache-opam.outputs.cache-hit != 'true'
+        run: |
+          opam install . --with-doc --with-test --locked --ignore-constraints-on=ocaml
+      - name: Fix broken opam state
+        if: steps.cache-opam.outputs.cache-hit == 'true'
+        run: opam upgrade --fixup
+
+      - name: Build
+        run: opam exec dune build
