@@ -96,8 +96,7 @@ jobs:
 
       - name: Install Opam dependencies
         if: steps.cache-opam.outputs.cache-hit != 'true'
-        run: |
-          opam install . --with-doc --with-test --locked --ignore-constraints-on=ocaml
+        run: make deps
 
       - name: Fix broken opam state
         if: steps.cache-opam.outputs.cache-hit == 'true'
