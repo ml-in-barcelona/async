@@ -4,7 +4,6 @@ on: [push]
 
 env:
   CACHE_IMAGE: davesnx/async_app
-  DOCKER_BUILDKIT: 1
 
 jobs:
   build-docker:
@@ -17,26 +16,34 @@ jobs:
       - name: Log in to docker hub
         run: docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASS }}
 
-      - name: Build from dockerfile
-        run: |
-          docker build \
-            --cache-from $CACHE_IMAGE:stage \
-            --tag $CACHE_IMAGE:stage \
-            --build-arg BUILDKIT_INLINE_CACHE=1 \
-            "."
+      - uses: whoan/docker-build-with-cache-action@master
+        with:
+          username: "${{ secrets.REGISTRY_USER }}"
+          password: "${{ secrets.REGISTRY_PASS }}"
+          image_name: "${{ env.CACHE_IMAGE }}"
+          image_tag: base,client,strate
+
+      - name: Push base image to docker hub
+        run: docker push $CACHE_IMAGE:base
+
+      - name: Push client image to docker hub
+        run: docker push $CACHE_IMAGE:client
 
       - name: Push stage image to docker hub
         run: docker push $CACHE_IMAGE:stage
 
   build-and-test:
     name: Build and Test
+
     runs-on: ${{ matrix.os }}
+
     strategy:
       fail-fast: false
       matrix:
         os:
           - macos-latest
           - ubuntu-latest
+
         ocaml-version:
           - 4.10.0
 
@@ -71,11 +78,11 @@ jobs:
 
       - name: Install Opam dependencies
         if: steps.cache-opam.outputs.cache-hit != 'true'
-        run: opam exec -- make install
+        run: make deps
 
       - name: Fix broken opam state
         if: steps.cache-opam.outputs.cache-hit == 'true'
         run: opam upgrade --fixup
 
       - name: Build
-        run: opam exec -- make build
+        run: opam exec dune build
