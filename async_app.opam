@@ -46,4 +46,5 @@ pin-depends: [
   [ "tyxml.dev" "git+https://github.com/jchavarri/tyxml.git#reason-react" ]
   [ "tyxml-jsx.dev" "git+https://github.com/jchavarri/tyxml.git#reason-react" ]
   [ "tyxml-syntax.dev" "git+https://github.com/jchavarri/tyxml.git#reason-react" ]
+  ["ocaml-lsp-server.dev" "git+https://github.com/ocaml/ocaml-lsp.git#HEAD"]
 ]
