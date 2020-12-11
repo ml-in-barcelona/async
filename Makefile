@@ -8,22 +8,17 @@ db_uri = "postgresql://admin:secret@localhost:6543/async_app"
 
 .PHONY: build
 build: # Build the app
-	opam exec dune build
+	dune build @all
 
 .PHONY: create-switch
 create-switch: # Create a local opam switch
 	opam switch create . 4.10.0 --deps-only
 
-.PHONY: deps
-deps: $(opam_file) # Alias to update the opam file and install the needed deps
-
 .PHONY: fmt
-fmt:
-	dune build @fmt --auto-promote
+fmt: dune build @fmt --auto-promote
 
 .PHONY: test
-test:
-	@dune test --force
+test: dune test --force
 
 .PHONY: run
 run: # Build and run the app
@@ -42,10 +37,9 @@ rollback: # Run the database rollback defined in migrate/rollback.ml
 	DATABASE_URL=$(db_uri) dune exec rollback
 
 .PHONY: lock
-lock: ## Generate the lock files
-	opam lock .
+lock: opam lock . ## Generate the lock files
+
 # Update the package dependencies when new deps are added to dune-project
-$(opam_file): dune-project
-	-dune build @Install # Update the $(project_name).opam file
+install:
 	opam install . \
-		--deps-only --with-doc --with-test # Install the new dependencies
+	--deps-only --with-doc --with-test # Install the new dependencies
