@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := run
+.DEFAULT_GOAL := build
 
 project_name = async_app
 
@@ -6,41 +6,46 @@ opam_file = $(project_name).opam
 
 db_uri = "postgresql://admin:secret@localhost:6543/async_app"
 
-.PHONY: create-switch deps fmt run run-debug migrate rollback
+.PHONY: build
+build: # Build the app
+	opam exec dune build
 
-# Create a local opam switch
-create-switch:
+.PHONY: create-switch
+create-switch: # Create a local opam switch
 	opam switch create . 4.10.0 --deps-only
 
-# Alias to update the opam file and install the needed deps
-deps: $(opam_file)
+.PHONY: deps
+deps: $(opam_file) # Alias to update the opam file and install the needed deps
 
+.PHONY: fmt
 fmt:
 	dune build @fmt --auto-promote
 
+.PHONY: test
 test:
 	@dune test --force
 
-# Build and run the app
-run:
+.PHONY: run
+run: # Build and run the app
 	DATABASE_URL=$(db_uri) dune exec $(project_name)
 
-# Build and run the app with Opium's internal debug messages visible
-run-debug:
+.PHONY: run-debug
+run-debug: # Build and run the app with Opium's internal debug messages visible
 	DATABASE_URL=$(db_uri) dune exec $(project_name) -- --debug
 
-# Run the database migrations defined in migrate/migrate.ml
-migrate:
+.PHONY: migrate
+migrate: # Run the database migrations defined in migrate/migrate.ml
 	DATABASE_URL=$(db_uri) dune exec migrate
 
-# Run the database rollback defined in migrate/rollback.ml
-rollback:
+.PHONY: rollback
+rollback: # Run the database rollback defined in migrate/rollback.ml
 	DATABASE_URL=$(db_uri) dune exec rollback
 
+.PHONY: lock
+lock: ## Generate the lock files
+	opam lock .
 # Update the package dependencies when new deps are added to dune-project
 $(opam_file): dune-project
-	-dune build @Install               # Update the $(project_name).opam file
+	-dune build @Install # Update the $(project_name).opam file
 	opam install . \
-		--deps-only --locked \
-		--with-doc --with-test \
-		--ignore-constraints-on=ocaml    # Install the new dependencies
+		--deps-only --with-doc --with-test # Install the new dependencies
