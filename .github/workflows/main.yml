@@ -14,36 +14,27 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v1
 
-      - name: Log in to docker hub
-        run: docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASS }}
+      - uses: whoan/docker-build-with-cache-action@master
+        with:
+          username: "${{ secrets.REGISTRY_USER }}"
+          password: "${{ secrets.REGISTRY_PASS }}"
+          image_name: "${{ env.CACHE_IMAGE }}"
+          image_tag: base
 
-      - name: Build base from dockerfile
-        run: |
-          docker build \
-            --target base \
-            --cache-from $CACHE_IMAGE:base \
-            --tag $CACHE_IMAGE:base \
-            --file ./Dockerfile \
-            "."
-      - name: Build client from dockerfile
-        run: |
-          docker build \
-            --target client \
-            --cache-from $CACHE_IMAGE:base \
-            --cache-from $CACHE_IMAGE:client \
-            --tag $CACHE_IMAGE:client \
-            --file ./Dockerfile \
-            "."
-      - name: Build stage from dockerfile
-        run: |
-          docker build \
-            --target stage \
-            --cache-from $CACHE_IMAGE:base \
-            --cache-from $CACHE_IMAGE:client \
-            --cache-from $CACHE_IMAGE:stage \
-            --tag $CACHE_IMAGE:stage \
-            --file ./Dockerfile \
-            "."
+      - uses: whoan/docker-build-with-cache-action@master
+        with:
+          username: "${{ secrets.REGISTRY_USER }}"
+          password: "${{ secrets.REGISTRY_PASS }}"
+          image_name: "${{ env.CACHE_IMAGE }}"
+          image_tag: client
+
+      - uses: whoan/docker-build-with-cache-action@master
+        with:
+          username: "${{ secrets.REGISTRY_USER }}"
+          password: "${{ secrets.REGISTRY_PASS }}"
+          image_name: "${{ env.CACHE_IMAGE }}"
+          image_tag: stage
+
       - name: Push base image to docker hub
         run: docker push $CACHE_IMAGE:base
       - name: Push client image to docker hub
