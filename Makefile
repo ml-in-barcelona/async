@@ -48,4 +48,4 @@ lock: ## Generate the lock files
 .PHONY: $(opam_file)
 $(opam_file): dune-project # Update the package dependencies when new deps are added to dune-project
 	-dune build @install        		 # Update the $(project_name).opam file
-	opam install . --locked --deps-only  # Install the new dependencies
+	opam install . --deps-only  # Install the new dependencies
