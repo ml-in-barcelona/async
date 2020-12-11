@@ -6,8 +6,10 @@ WORKDIR /async_app
 COPY async_app.opam .
 COPY async_app.opam.locked .
 RUN opam pin add -yn async_app .
+# Temorary update opam-repository
+RUN cd ~/opam-repository && (git cat-file -e 1089e2fbbb25dd2518069e614b4ed8f7088763ca || git fetch origin master) && git reset -q --hard 1089e2fbbb25dd2518069e614b4ed8f7088763ca && git log --no-decorate -n1 --oneline && opam update -u
 RUN opam depext async_app --with-test
-RUN OPAMCURL="curl --tlsv1 -kv" opam install . --locked --with-doc --with-test --ignore-constraints-on=ocaml
+RUN OPAMCURL="curl --tlsv1 -kv" opam install . --locked --with-doc --with-test
 
 # Build the server app. Note: The chown is somehow necessary, as
 # without it the `dune build` command will fail with
