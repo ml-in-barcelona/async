@@ -26,23 +26,22 @@ jobs:
 
       - name: Push base image to docker hub
         run: docker push $CACHE_IMAGE:base
+
       - name: Push client image to docker hub
         run: docker push $CACHE_IMAGE:client
+
       - name: Push stage image to docker hub
         run: docker push $CACHE_IMAGE:stage
 
   build-and-test:
     name: Build and Test
-
     runs-on: ${{ matrix.os }}
-
     strategy:
       fail-fast: false
       matrix:
         os:
           - macos-latest
           - ubuntu-latest
-
         ocaml-version:
           - 4.10.0
 
