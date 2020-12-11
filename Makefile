@@ -44,8 +44,8 @@ rollback: # Run the database rollback defined in migrate/rollback.ml
 .PHONY: lock
 lock: ## Generate the lock files
 	opam lock .
-
-.PHONY: $(opam_file)
-$(opam_file): dune-project # Update the package dependencies when new deps are added to dune-project
-	-dune build @install        		 # Update the $(project_name).opam file
-	opam install . --deps-only  # Install the new dependencies
+# Update the package dependencies when new deps are added to dune-project
+$(opam_file): dune-project
+	-dune build @Install # Update the $(project_name).opam file
+	opam install . \
+		--deps-only --with-doc --with-test # Install the new dependencies

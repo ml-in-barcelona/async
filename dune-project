@@ -35,10 +35,14 @@
   (uri (and (>= 3.1.0) (< 4.0.0)))
   (atdgen (and (>= 2.2.1) (< 2.3.0)))
 
+  ;; Test framework
+  ; (alcotest (>= 1.2.0))
+
   ;; HTML generation
   (tyxml :dev)
   (tyxml-jsx :dev)
   (tyxml-syntax :dev)
 
   ;; Dev dependencies
+  (ocaml-lsp-server :dev)
 ))

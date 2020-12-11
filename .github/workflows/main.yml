@@ -22,7 +22,6 @@ jobs:
             --cache-from $CACHE_IMAGE:base \
             --tag $CACHE_IMAGE:base \
             --file ./Dockerfile \
-            --build-arg BUILDKIT_INLINE_CACHE=1 \
             "."
       - name: Build client from dockerfile
         run: |
@@ -32,7 +31,6 @@ jobs:
             --cache-from $CACHE_IMAGE:client \
             --tag $CACHE_IMAGE:client \
             --file ./Dockerfile \
-            --build-arg BUILDKIT_INLINE_CACHE=1 \
             "."
       - name: Build stage from dockerfile
         run: |
@@ -43,7 +41,6 @@ jobs:
             --cache-from $CACHE_IMAGE:stage \
             --tag $CACHE_IMAGE:stage \
             --file ./Dockerfile \
-            --build-arg BUILDKIT_INLINE_CACHE=1 \
             "."
       - name: Push base image to docker hub
         run: docker push $CACHE_IMAGE:base
