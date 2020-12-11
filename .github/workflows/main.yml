@@ -17,13 +17,35 @@ jobs:
       - name: Log in to docker hub
         run: docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASS }}
 
-      - name: Build from dockerfile
+      - name: Build base dockerfile
+        run: |
+          docker build \
+            --cache-from $CACHE_IMAGE:base \
+            --tag $CACHE_IMAGE:base \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            "."
+
+      - name: Build client from dockerfile
+        run: |
+          docker build \
+            --cache-from $CACHE_IMAGE:client \
+            --tag $CACHE_IMAGE:client \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            "."
+
+      - name: Build stage from dockerfile
         run: |
           docker build \
             --cache-from $CACHE_IMAGE:stage \
             --tag $CACHE_IMAGE:stage \
             --build-arg BUILDKIT_INLINE_CACHE=1 \
             "."
+
+      - name: Push base image to docker hub
+        run: docker push $CACHE_IMAGE:base
+
+      - name: Push client image to docker hub
+        run: docker push $CACHE_IMAGE:client
 
       - name: Push stage image to docker hub
         run: docker push $CACHE_IMAGE:stage
