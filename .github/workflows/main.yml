@@ -14,21 +14,16 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v1
 
-      - uses: whoan/docker-build-with-cache-action@master
-        with:
-          username: "${{ secrets.REGISTRY_USER }}"
-          password: "${{ secrets.REGISTRY_PASS }}"
-          image_name: "${{ env.CACHE_IMAGE }}"
-          image_tag: base,client,stage
-
       - name: Log in to docker hub
         run: docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASS }}
 
-      - name: Push base image to docker hub
-        run: docker push $CACHE_IMAGE:base
-
-      - name: Push client image to docker hub
-        run: docker push $CACHE_IMAGE:client
+      - name: Build from dockerfile
+        run: |
+          docker build \
+            --cache-from $CACHE_IMAGE:stage \
+            --tag $CACHE_IMAGE:stage \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            "."
 
       - name: Push stage image to docker hub
         run: docker push $CACHE_IMAGE:stage
