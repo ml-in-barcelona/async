@@ -41,5 +41,5 @@
   (tyxml-syntax :dev)
 
   ;; Dev dependencies
-  (ocaml-lsp-server (>= 1.3.0))
+  (ocaml-lsp-server (= 1.3.0))
 ))
