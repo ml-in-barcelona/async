@@ -11,11 +11,16 @@ build:
 	# Build the app
 	dune build @all
 
+.PHONY: install
+install:
+	# Install the new dependencies
+	opam install --deps-only --with-doc --with-test .
+
 .PHONY: dev
 dev:
 	# Create a local opam switch and install deps
 	opam switch create . 4.10.0 --deps-only
-	opam install -y ocaml-lsp-server
+	opam install -y ocaml-lsp-server dune
 	opam install --locked --deps-only --with-test --with-doc -y .
 
 .PHONY: fmt
@@ -52,7 +57,3 @@ rollback:
 lock:
 	# Generate the lock files
 	opam lock -y .
-
-install:
-	# Install the new dependencies
-	opam install --deps-only --with-doc --with-test .

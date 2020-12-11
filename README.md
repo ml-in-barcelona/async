@@ -12,22 +12,17 @@ Potentially, `shared` folder can contain other shared code like validation funct
 
 ### Getting started
 
-Create an opam local switch:
-
 ```bash
-make create-switch
+make dev
 ```
-
-Install `dune` in the newly created switch:
-
-```bash
-opam install dune
-```
+- Create an opam local switch
+- Installs `dune` & `ocaml-lsp-server`
+- Installs dependencies
 
 Install all dependencies:
 
 ```bash
-make deps
+make install
 ```
 
 Build client:
