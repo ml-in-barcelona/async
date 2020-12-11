@@ -2,6 +2,8 @@
   "name": "client",
   "version": "0.1.0",
   "scripts": {
+    "styles": "tailwind build client/src/styles.css -o client/src/bundled.css",
+    "prebuild": "yarn styles",
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w -ws _ ",
     "clean": "bsb -clean-world",
