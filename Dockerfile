@@ -6,8 +6,8 @@ WORKDIR /async_app
 COPY async_app.opam .
 COPY async_app.opam.locked .
 RUN opam pin add -yn async_app .
-RUN opam depext async_app
-RUN OPAMCURL="curl --tlsv1 -kv" opam install . --deps-only --locked
+RUN opam depext async_app --with-test
+RUN OPAMCURL="curl --tlsv1 -kv" opam install . --locked --with-doc --with-test --ignore-constraints-on=ocaml
 
 # Build the server app. Note: The chown is somehow necessary, as
 # without it the `dune build` command will fail with

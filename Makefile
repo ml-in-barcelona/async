@@ -39,5 +39,8 @@ rollback:
 
 # Update the package dependencies when new deps are added to dune-project
 $(opam_file): dune-project
-	-dune build @install        # Update the $(project_name).opam file
-	opam install . --deps-only  # Install the new dependencies
+	-dune build @Install               # Update the $(project_name).opam file
+	opam install . \
+		--deps-only --locked \
+		--with-doc --with-test \
+		--ignore-constraints-on=ocaml    # Install the new dependencies
