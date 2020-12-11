@@ -2,12 +2,14 @@ FROM ocaml/opam2:debian-10-ocaml-4.10 as base
 
 WORKDIR /async_app
 
+RUN cd ~/opam-repository && (git cat-file -e 1089e2fbbb25dd2518069e614b4ed8f7088763ca || git fetch origin master) && git reset -q --hard 1089e2fbbb25dd2518069e614b4ed8f7088763ca && git log --no-decorate -n1 --oneline && opam update -u
+
+RUN eval $(opam env)
+
 # Install dependencies
 COPY async_app.opam .
 COPY async_app.opam.locked .
 RUN opam pin add -yn async_app .
-# Temorary update opam-repository
-RUN cd ~/opam-repository && (git cat-file -e 1089e2fbbb25dd2518069e614b4ed8f7088763ca || git fetch origin master) && git reset -q --hard 1089e2fbbb25dd2518069e614b4ed8f7088763ca && git log --no-decorate -n1 --oneline && opam update -u
 RUN opam depext async_app --with-test
 RUN OPAMCURL="curl --tlsv1 -kv" opam install . --locked --with-doc --with-test
 
