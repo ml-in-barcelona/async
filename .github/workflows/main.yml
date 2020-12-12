@@ -40,7 +40,7 @@ jobs:
           push: true
           tags: ${{ env.CACHE_IMAGE }}:base
           cache-from: type=local,src=${{ env.CACHE_FOLDER }}
-          cache-to: type=local,dest=${{ env.CACHE_FOLDER }}
+          cache-to: type=local,dest=${{ env.CACHE_FOLDER }},mode=max
 
       - name: Build and push ${{ env.CACHE_IMAGE }}:client
         uses: docker/build-push-action@v2
@@ -48,7 +48,7 @@ jobs:
           push: true
           tags: ${{ env.CACHE_IMAGE }}:client
           cache-from: type=local,src=${{ env.CACHE_FOLDER }}
-          cache-to: type=local,dest=${{ env.CACHE_FOLDER }}
+          cache-to: type=local,dest=${{ env.CACHE_FOLDER }},mode=max
 
       - name: Build stage ${{ env.CACHE_IMAGE }}:stage
         uses: docker/build-push-action@v2
@@ -56,7 +56,7 @@ jobs:
           push: true
           tags: ${{ env.CACHE_IMAGE }}:stage
           cache-from: type=local,src=${{ env.CACHE_FOLDER }}
-          cache-to: type=local,dest=${{ env.CACHE_FOLDER }}
+          cache-to: type=local,dest=${{ env.CACHE_FOLDER }},mode=max
 
   build-and-test:
     name: Build and Test
