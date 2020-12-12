@@ -84,3 +84,6 @@ jobs:
 
       - name: Build
         run: opam exec -- make build
+
+      - name: Test
+        run: opam exec -- make test
