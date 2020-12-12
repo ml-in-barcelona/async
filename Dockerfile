@@ -2,6 +2,7 @@ FROM ocaml/opam2:debian-10-ocaml-4.10 as base
 
 WORKDIR /async_app
 
+# Update opam-repository imperatively
 RUN cd ~/opam-repository && (git cat-file -e 1089e2fbbb25dd2518069e614b4ed8f7088763ca || git fetch origin master) && git reset -q --hard 1089e2fbbb25dd2518069e614b4ed8f7088763ca && git log --no-decorate -n1 --oneline && opam update -u
 
 RUN eval $(opam env)
