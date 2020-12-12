@@ -9,6 +9,7 @@ homepage: "https://github.com/davesnx/async_app"
 doc: "https://github.com/davesnx/async_app"
 bug-reports: "https://github.com/davesnx/async_app/issues"
 depends: [
+  "alcotest" {= "1.2.3"}
   "astring" {= "0.8.5"}
   "atd" {= "2.2.1"}
   "atdgen" {= "2.2.1"}
@@ -135,6 +136,7 @@ depends: [
   "uchar" {= "0.0.2"}
   "uri" {= "3.1.0"}
   "uri-sexp" {= "3.1.0"}
+  "uuidm" {= "0.9.7"}
   "uutf" {= "1.0.2"}
   "variantslib" {= "v0.14.0"}
   "yojson" {= "1.7.0"}
