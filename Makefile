@@ -14,14 +14,14 @@ build:
 .PHONY: install
 install:
 	# Install the new dependencies
-	opam install --deps-only --with-doc --with-test .
+	opam install --locked --deps-only --with-doc --with-test -y .
 
 .PHONY: dev
 dev:
 	# Create a local opam switch and install deps
 	opam switch create . 4.10.0 --deps-only
 	opam install -y ocaml-lsp-server dune
-	opam install --locked --deps-only --with-test --with-doc -y .
+	make install
 
 .PHONY: fmt
 fmt:

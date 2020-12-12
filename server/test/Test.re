@@ -1,48 +1,56 @@
-/*
- open Alcotest;
+open Alcotest;
 
-    /* A module with functions to test */
-    module To_test = {
-      let lowercase = String.lowercase_ascii;
-      let capitalize = String.capitalize_ascii;
-      let str_concat = String.concat("");
-      let list_concat = List.append;
-    };
+module To_test = {
+  let lowercase = String.lowercase_ascii;
+  let capitalize = String.capitalize_ascii;
+  let str_concat = String.concat("");
+  let list_concat = List.append;
+};
 
-    /* The tests */
-    let test_lowercase = () =>
-      check(string, "same string", "hello!", To_test.lowercase("hELLO!"));
+let test_lowercase = () =>
+  check(string, "same string", "hello!", To_test.lowercase("hELLO!"));
 
-    let test_capitalize = () =>
-      check(string, "same string", "World.", To_test.capitalize("world."));
+let test_capitalize = () =>
+  check(string, "same string", "World.", To_test.capitalize("world."));
 
-    let test_str_concat = () =>
-      check(string, "same string", "foobar", To_test.str_concat(["foo", "bar"]));
+let test_str_concat = () =>
+  check(string, "same string", "foobar", To_test.str_concat(["foo", "bar"]));
 
-    let test_list_concat = () =>
-      check(
-        list(int),
-        "same lists",
-        [1, 2, 3],
-        To_test.list_concat([1], [2, 3]),
-      );
+let test_api_payload = () =>
+  check(
+    string,
+    "same string",
+    "async_app_page_payload",
+    Shared.Api.payload_id,
+  );
 
-    let () =
-      run(
-        "Utils",
+let test_list_concat = () =>
+  check(
+    list(int),
+    "same lists",
+    [1, 2, 3],
+    To_test.list_concat([1], [2, 3]),
+  );
+
+let () =
+  run(
+    "Utils",
+    [
+      (
+        "string-case",
         [
-          (
-            "string-case",
-            [
-              test_case("Lower case", `Quick, test_lowercase),
-              test_case("Capitalization", `Quick, test_capitalize),
-            ],
-          ),
-          (
-            "string-concat",
-            [test_case("String mashing", `Quick, test_str_concat)],
-          ),
-          ("list-concat", [test_case("List mashing", `Slow, test_list_concat)]),
+          test_case("Lower case", `Quick, test_lowercase),
+          test_case("Capitalization", `Quick, test_capitalize),
         ],
-      );
-     */
+      ),
+      (
+        "string-concat",
+        [test_case("String mashing", `Quick, test_str_concat)],
+      ),
+      ("list-concat", [test_case("List mashing", `Slow, test_list_concat)]),
+      (
+        "api-payload-id",
+        [test_case("Api payload_id", `Slow, test_api_payload)],
+      ),
+    ],
+  );

@@ -1,0 +1,4 @@
+(test
+ (name Test)
+ (libraries opium alcotest shared)
+)
