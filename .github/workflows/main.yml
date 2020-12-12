@@ -17,6 +17,9 @@ jobs:
       - name: Log in to docker hub
         run: docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASS }}
 
+      - name: Pull previous image
+        run: docker pull $CACHE_IMAGE:stage
+
       - name: Build base dockerfile
         run: |
           docker build \
@@ -49,6 +52,11 @@ jobs:
 
       - name: Push stage image to docker hub
         run: docker push $CACHE_IMAGE:stage
+
+      - name: Push stage image to docker hub
+        run: |
+          SHORT_GITHUB_SHA=$(echo $GITHUB_SHA | cut -c1-8)
+          docker push $CACHE_IMAGE:stage-$SHORT_GITHUB_SHA
 
   build-and-test:
     name: Build and Test
