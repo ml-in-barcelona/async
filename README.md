@@ -65,10 +65,22 @@ Finally, `make migrate`.
 Right now, the example allows to easily deploy the app to Heroku. Build times are longer than they should, but hopefully
 this will be fixed [soon](https://github.com/jchavarri/async_app/issues/1).
 
+#### Initial configuration
+
 - Install the Heroku CLI: http://toolbelt.heroku.com/
 - Run `heroku create your_app` from the app folder
 - Set stack for the app to `container`: `heroku stack:set container`
-- `git push heroku master`
+- Provision the Postgres addon in the free `hobby-dev` plan: `heroku addons:create heroku-postgresql:hobby-dev`
+
+Now, for [review apps](https://devcenter.heroku.com/articles/github-integration-review-apps) there is no need to provision the addon or seed the database, as this is done from the [`app.json` file](https://github.com/reason-in-barcelona/async/blob/5fc57c0e9b0b4c0ffd1719c38328f67d36546549/app.json#L15). But for the production database, it will be needed.
+
+To do so:
+- Start the sql command line tool with `heroku pg:psql`
+- Manually run the `create table` statements shown in `migrate.re` in the Postgres interactive terminal.
+
+#### Regular deploys
+
+To deploy the app after changes, just run `git push heroku master`.
 
 ### Resources
 
