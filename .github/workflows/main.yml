@@ -18,7 +18,10 @@ jobs:
         run: docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASS }}
 
       - name: Pull previous image
-        run: docker pull $CACHE_IMAGE:stage
+        run: |
+          docker pull $CACHE_IMAGE:base
+          docker pull $CACHE_IMAGE:client
+          docker pull $CACHE_IMAGE:stage
 
       - name: Build base dockerfile
         run: |
