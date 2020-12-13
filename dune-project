@@ -29,7 +29,7 @@
   (ppx_rapper (and (>= 0.9.2) (< 2.0)))
 
   ;; Web toolkit
-  (opium (= 0.17.1))
+  (opium (= 0.20.0))
   (routes (and (>= 0.8.0) (< 0.9.0)))
   (reason (and (>= 3.6.0) (< 4.0.0)))
   (uri (and (>= 3.1.0) (< 4.0.0)))
