@@ -4,7 +4,9 @@ project_name = async_app
 
 opam_file = $(project_name).opam
 
-db_uri = "postgresql://admin:secret@localhost:6543/async_app"
+db_uri = "postgresql://admin:secret@localhost:5432/async_app"
+
+DUNE=opam exec -- dune
 
 .PHONY: build
 build:
@@ -22,6 +24,12 @@ dev:
 	opam switch create . 4.10.0 --deps-only
 	opam install -y ocaml-lsp-server dune
 	make install
+
+.PHONY: watch
+watch:
+	watchexec -w server \
+	--exts re,rei,ml,mli,atd,json -r -c \
+	"$(MAKE) run"
 
 .PHONY: fmt
 fmt:
