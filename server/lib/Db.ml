@@ -1,5 +1,5 @@
 open! Core
-open Opium.Std
+open Opium
 
 (* Type aliases for the sake of documentation and explication *)
 type 'err caqti_conn_pool =
@@ -29,23 +29,23 @@ let query_pool query pool =
    outside of this module *)
 type 'err db_pool = 'err caqti_conn_pool
 
-let key : _ db_pool Opium.Hmap.key =
-  Opium.Hmap.Key.create ("db pool", fun _ -> sexp_of_string "db_pool")
+let key : _ db_pool Opium.Context.key =
+  Context.Key.create ("db pool", fun _ -> sexp_of_string "db_pool")
 
 (* Initiate a connection pool and add it to the app environment *)
 let middleware app =
   let pool = connect () in
   let filter handler (req : Request.t) =
-    let env = Opium.Hmap.add key pool (Request.env req) in
+    let env = Opium.Context.add key pool req.Request.env in
     handler { req with env }
   in
   let m = Rock.Middleware.create ~name:"database connection pool" ~filter in
-  middleware m app
+  Opium.App.middleware m app
 
 (* Execute a query on the database connection pool stored in the request
    environment *)
 let query_db query req =
-  Request.env req |> Opium.Hmap.get key |> query_pool query
+  req.Request.env |> Opium.Context.find_exn key |> query_pool query
 
 (** Collects all the SQL queries *)
 module Query = struct

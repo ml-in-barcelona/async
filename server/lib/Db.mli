@@ -1,4 +1,4 @@
-open Opium.Std
+open Opium
 
 (** {{1} Type aliases for clearer documentation and explication} *)
 

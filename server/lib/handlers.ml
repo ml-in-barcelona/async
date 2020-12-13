@@ -1,6 +1,6 @@
 open Core
 open Tyxml
-open Opium.Std
+open Opium
 open Lwt.Syntax
 
 (** A <head> component shared by all pages *)
@@ -24,7 +24,6 @@ let default_head =
 (** The basic page layout, emitted as an [`Html string] which Opium can use as a
     response *)
 let basic_page ?payload content =
-  let raw_html =
     let open Html in
     let content_container =
       [
@@ -37,9 +36,7 @@ let basic_page ?payload content =
       | Some p -> p :: content_container
       | None -> content_container
     in
-    html default_head (body body_children) |> Format.asprintf "%a" (Html.pp ())
-  in
-  `Html raw_html
+    html default_head (body body_children) |> Response.of_html |> Lwt.return
 
 let page_with_payload payload elements =
   let open Html in
@@ -50,13 +47,12 @@ let page_with_payload payload elements =
          (Unsafe.data payload))
     elements
 
-let json str = `Json (Ezjsonm.from_string str)
+let json str = `Json (Yojson.Raw.from_string str)
 
 let respond_or_err resp = function
-  | Ok v -> respond' @@ resp v
+  | Ok v -> resp v
   | Error err ->
-    respond'
-    @@ basic_page
+    basic_page
          Html.
            [ p [ txt (Printf.sprintf "Oh no! Something went wrong: %s" err) ] ]
 
@@ -68,17 +64,17 @@ module Handlers = struct
 
   module Pages = struct
     (** Defines a handler that replies to requests at the root endpoint *)
-    let root _req = respond' @@ basic_page [ Shared.PageWelcome.make () ]
+    let root _req = basic_page [ Shared.PageWelcome.make () ]
 
     (** Defines a handler that takes a path parameter from the route *)
-    let hello lang _req = respond' @@ basic_page [ Shared.PageHello.make ~lang ]
+    let hello lang _req = basic_page [ Shared.PageHello.make ~lang ]
 
     (** Fallback handler in case the endpoint is called without a language parameter *)
     let hello_fallback _req =
-      respond' @@ basic_page [ Shared.PageHelloFallback.make () ]
+       basic_page [ Shared.PageHelloFallback.make () ]
 
     let excerpts_add _req =
-      respond' @@ basic_page [ Shared.PageAddExcerpt.make () ]
+       basic_page [ Shared.PageAddExcerpt.make () ]
 
     let excerpts_by_author name req =
       let open Lwt in
@@ -96,28 +92,35 @@ module Handlers = struct
             (Shared.PageAuthorExcerpts_j.string_of_payload authors)
             [ Shared.PageAuthorExcerpts.make ~authors ]
 
-    let counter _req = respond' @@ basic_page [ Shared.PageCounter.make () ]
+    let counter _req = basic_page [ Shared.PageCounter.make () ]
   end
 
   module Api = struct
+    let of_string s = let of_string'
+    body
+  =
+    let headers = Headers.add Headers.empty "Content-Type" "application/json" in
+    Response.make ~headers ~body:(Body.of_string body) () in
+    Lwt.return @@ of_string' s
+    
     let authors_with_excerpts req =
       let open Lwt in
       Db.Get.authors req
       >>= respond_or_err (fun authors ->
-            json (Shared.PageAuthorExcerpts_j.string_of_payload authors))
+        of_string @@ Shared.PageAuthorExcerpts_j.string_of_payload authors)
 
     let excerpts_by_author name req =
       let open Lwt in
       Db.Get.excerpts_by_author name req
       >>= respond_or_err (fun excerpts ->
-            json (Shared.PageExcerpts_j.string_of_payload excerpts))
+        of_string @@  (Shared.PageExcerpts_j.string_of_payload excerpts))
 
     let add_excerpt req =
       let open Lwt in
-      let* str = App.string_of_body_exn req in
+      let* str = Request.to_plain_text req in
       let excerpt = Shared.Excerpt_j.t_of_string str in
       Db.Update.add_excerpt excerpt req
-      >>= respond_or_err (fun () -> json (Shared.Excerpt_j.string_of_t excerpt))
+      >>= respond_or_err (fun () -> of_string @@  (Shared.Excerpt_j.string_of_t excerpt))
   end
 end
 
@@ -125,8 +128,8 @@ module Router = Shared.Router.Make (Handlers)
 
 let create_middleware ~router =
   let filter handler req =
-    let target = Request.uri req |> Uri.path |> Uri.pct_decode in
-    let meth = Request.meth req in
+    let target = req.Request.target in
+    let meth = req.Request.meth in
     match Shared.MethodRoutes.match' ~meth ~target router with
     | None -> handler req
     | Some h -> h req
@@ -135,5 +138,7 @@ let create_middleware ~router =
 
 let m = create_middleware ~router:(Shared.MethodRoutes.one_of Router.routes)
 
-(* let four_o_four =
-  not_found (fun _req -> respond' @@ basic_page [ Shared.PageNotFound.make () ]) *)
+let four_o_four =
+  Opium.App.not_found (fun _req ->
+    let* response = basic_page [ Shared.PageNotFound.make () ] in
+    Lwt.return (response.headers, response.body))
