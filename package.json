@@ -11,7 +11,10 @@
     "webpack:dev": "webpack",
     "webpack:production": "NODE_ENV=production webpack",
     "server": "webpack-dev-server",
-    "start": "concurrently -k --names webpack,reason 'yarn server' 'yarn watch'",
+    "db:down": "docker-compose -f docker-compose.dev.yml down",
+    "db:up": "docker-compose -f docker-compose.dev.yml up",
+    "backend": "make watch",
+    "start": "yarn db:down && concurrently --kill-others --names db,webpack,reason 'yarn db:up' 'yarn server' 'yarn watch' 'yarn backend'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

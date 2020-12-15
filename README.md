@@ -39,6 +39,12 @@ Build and run the server:
 make run
 ```
 
+Watch the filesystem and re-run the server
+```bash
+# Install previously https://github.com/watchexec/watchexec
+make watch
+```
+
 Open the browser and go to http://localhost:3000/.
 
 It's also possible to get hot reloading while developing. For that, start the server (to be able to serve API requests) with `make run`, run BuckleScript in `yarn start` and then start Webpack dev server with `yarn server`.
