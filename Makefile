@@ -4,7 +4,7 @@ project_name = async_app
 
 opam_file = $(project_name).opam
 
-db_uri = "postgresql://admin:secret@localhost:5432/async_app"
+db_uri = "postgresql://admin:secret@localhost:5555/async_app"
 
 DUNE=opam exec -- dune
 

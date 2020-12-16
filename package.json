@@ -4,6 +4,7 @@
   "scripts": {
     "styles": "tailwind build client/src/styles.css -o client/src/bundled.css",
     "prebuild": "yarn styles",
+    "prewatch": "yarn styles",
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w -ws _ ",
     "clean": "bsb -clean-world",
@@ -13,8 +14,9 @@
     "server": "webpack-dev-server",
     "db:down": "docker-compose -f docker-compose.dev.yml down",
     "db:up": "docker-compose -f docker-compose.dev.yml up",
-    "backend": "make watch",
-    "start": "yarn db:down && concurrently --kill-others --names db,webpack,reason 'yarn db:up' 'yarn server' 'yarn watch' 'yarn backend'",
+    "backend": "yarn wait-db && make watch",
+    "wait-db": "wait-on tcp:${PGPORT:-5555} --timeout 5000",
+    "start": "yarn db:down && concurrently --kill-others --names db,reason,webpack,backend 'yarn db:up' 'yarn watch' 'yarn server' 'yarn backend'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -27,7 +29,8 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "reason-react": ">=0.7.1",
-    "tailwindcss": "^2.0.1"
+    "tailwindcss": "^2.0.1",
+    "wait-on": "^5.1.0"
   },
   "devDependencies": {
     "bs-platform": "^8.0.3",
