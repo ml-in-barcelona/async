@@ -16,7 +16,9 @@ let connection_uri = Sys.getenv_exn "DATABASE_URL"
 let connect () =
   connection_uri |> Uri.of_string |> Caqti_lwt.connect_pool ~max_size:10
   |> function
-  | Ok pool -> pool
+  | Ok pool ->
+    Logs.info (fun m -> m "Database connected");
+    pool
   | Error err -> failwith (Caqti_error.show err)
 
 (* [query_pool query pool] is the [Ok res] of the [res] obtained by executing
