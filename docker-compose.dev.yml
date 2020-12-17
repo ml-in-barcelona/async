@@ -12,7 +12,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
-      - "5555:5432"
+      - "${ASYNC_PG_PORT:-5432}:5432" # ASYNC_PG_PORT comes from .env
 
   pgadmin:
     image: dpage/pgadmin4:4.18

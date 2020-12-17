@@ -4,7 +4,9 @@ project_name = async_app
 
 opam_file = $(project_name).opam
 
-db_uri = "postgresql://admin:secret@localhost:5555/async_app"
+ASYNC_PG_PORT ?= 5432
+
+db_uri = "postgresql://admin:secret@localhost:$(ASYNC_PG_PORT)/async_app"
 
 DUNE=opam exec -- dune
 
@@ -50,12 +52,12 @@ test:
 .PHONY: run
 run:
 	# Build and run the app
-	DATABASE_URL=$(db_uri) dune exec $(project_name)
+	DATABASE_URL=$(db_uri) $(DUNE) exec $(project_name)
 
 .PHONY: run-debug
 run-debug:
 	# Build and run the app with Opium's internal debug messages visible
-	DATABASE_URL=$(db_uri) dune exec $(project_name) -- --debug
+	DATABASE_URL=$(db_uri) $(DUNE) exec $(project_name) -- --debug
 
 .PHONY: migrate
 migrate:

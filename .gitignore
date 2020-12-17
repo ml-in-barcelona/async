@@ -11,3 +11,4 @@ npm-debug.log
 server/static/Index.js*
 /shared/gen/*.ml*
 client/src/bundled.css
+.env
