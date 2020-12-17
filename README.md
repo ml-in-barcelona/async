@@ -12,6 +12,11 @@ Potentially, `shared` folder can contain other shared code like validation funct
 
 ### Getting started
 
+#### Development requirements
+- Install [watchexec](https://github.com/watchexec/watchexec) to make sure the server restarts when source-code change.
+- Install [direnv](https://direnv.net) to load enviroment variables for each project from `.envrc`.
+- Install [opam](https://opam.ocaml.org/doc/Install.html), our package-manager.
+
 ```bash
 make dev
 ```
@@ -36,12 +41,13 @@ yarn webpack:dev
 
 Build and run the server:
 ```bash
+# Make sure you run `direnv allow .` inside the directory (you would only need to do it once)
 make run
 ```
 
 Watch the filesystem and re-run the server
 ```bash
-# Install previously https://github.com/watchexec/watchexec
+# Make sure you have watchexec installed
 make watch
 ```
 

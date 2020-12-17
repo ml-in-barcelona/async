@@ -42,12 +42,12 @@ watch:
 .PHONY: fmt
 fmt:
 	# Format
-	dune build @fmt --auto-promote
+	$(DUNE) build @fmt --auto-promote
 
 .PHONY: test
 test:
 	# Run unit tests
-	dune test --force
+	$(DUNE) test --force
 
 .PHONY: run
 run:
@@ -62,12 +62,12 @@ run-debug:
 .PHONY: migrate
 migrate:
 	# Run the database migrations defined in migrate/migrate.ml
-	DATABASE_URL=$(db_uri) dune exec migrate
+	DATABASE_URL=$(db_uri) $(DUNE) exec migrate
 
 .PHONY: rollback
 rollback:
 	# Run the database rollback defined in migrate/rollback.ml
-	DATABASE_URL=$(db_uri) dune exec rollback
+	DATABASE_URL=$(db_uri) $(DUNE) exec rollback
 
 .PHONY: lock
 lock:
@@ -84,5 +84,5 @@ clean:
 
 # Update the package dependencies when new deps are added to dune-project
 $(opam_file): dune-project lock
-	-dune build @install        # Update the $(project_name).opam file
+	$(DUNE) build @install        # Update the $(project_name).opam file
 	opam install --locked --deps-only --with-doc --with-test -y .

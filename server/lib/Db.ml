@@ -14,12 +14,14 @@ let connection_uri = Sys.getenv_exn "DATABASE_URL"
 (* [connection ()] establishes a live database connection and is a pool of
    concurrent threads for accessing that connection. *)
 let connect () =
+  Logs.info (fun m -> m "Database URL %s" connection_uri);
   connection_uri |> Uri.of_string |> Caqti_lwt.connect_pool ~max_size:10
   |> function
   | Ok pool ->
     Logs.info (fun m -> m "Database connected");
     pool
-  | Error err -> failwith (Caqti_error.show err)
+  | Error err ->
+    failwith (Caqti_error.show err)
 
 (* [query_pool query pool] is the [Ok res] of the [res] obtained by executing
    the database [query], or else the [Error err] reporting the error causing
