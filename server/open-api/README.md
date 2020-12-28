@@ -10,7 +10,7 @@ We manually will generate those clients and keep them in git, allowing us to hav
 
 1. Install JDK
 2. Install openapi-generator-cli (from npm or homebrew)
-3. Run `openapi-generator-cli generate -i open-api-spec.yaml -g ocaml -o clients/service --enable-post-process-file`, as an example: `openapi-generator-cli generate -i github-2.22.yaml -g ocaml -o clients/github --enable-post-process-file`. Options and additionalProperties may vary from each client.
+3. Run `openapi-generator-cli generate -i open-api-spec.yaml -g ocaml -o clients/service --enable-post-process-file`, as an example: `openapi-generator-cli generate -i github.yaml -g ocaml -o clients/github --enable-post-process-file`. Options and additionalProperties may vary from each client.
 4. Change a bit the generated output
   - Move src/* into the service folder
   - Remove dune/dune-projects
