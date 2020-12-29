@@ -1,9 +1,11 @@
 .DEFAULT_GOAL := build
 
 project_name = async_app
-
 opam_file = $(project_name).opam
+<<<<<<< HEAD
 
+=======
+>>>>>>> Fix-start-cmnd
 DUNE=opam exec -- dune
 
 .PHONY: build
