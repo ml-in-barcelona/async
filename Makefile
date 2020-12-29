@@ -2,8 +2,6 @@ project_name = async_app
 
 opam_file = $(project_name).opam
 
-db_uri = "postgresql://admin:secret@localhost:5432/async_app"
-
 .PHONY: create-switch deps fmt run run-debug migrate rollback
 
 # Create a local opam switch
@@ -18,19 +16,19 @@ fmt:
 
 # Build and run the app
 run:
-	DATABASE_URL=$(db_uri) dune exec $(project_name)
+	dune exec $(project_name)
 
 # Build and run the app with Opium's internal debug messages visible
 run-debug:
-	DATABASE_URL=$(db_uri) dune exec $(project_name) -- --debug
+	dune exec $(project_name) -- --debug
 
 # Run the database migrations defined in migrate/migrate.ml
 migrate:
-	DATABASE_URL=$(db_uri) dune exec migrate_async_app
+	dune exec migrate_async_app
 
 # Run the database rollback defined in migrate/rollback.ml
 rollback:
-	DATABASE_URL=$(db_uri) dune exec rollback_async_app
+	dune exec rollback_async_app
 
 # Update the package dependencies when new deps are added to dune-project
 $(opam_file): dune-project
