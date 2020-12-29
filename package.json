@@ -12,7 +12,7 @@
     "webpack:dev": "webpack",
     "webpack:production": "NODE_ENV=production webpack",
     "server": "webpack-dev-server",
-    "db:down": "docker-compose -f docker-compose.dev.yml down",
+    "db:down": "docker-compose -f docker-compose.dev.yml down --volumes",
     "db:up": "docker-compose -f docker-compose.dev.yml up",
     "backend": "yarn wait-db && make migrate && make watch",
     "wait-db": "wait-on tcp:${ASYNC_PG_PORT:-5432} --timeout 5000",

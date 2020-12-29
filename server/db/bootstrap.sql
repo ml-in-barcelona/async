@@ -1,0 +1,4 @@
+CREATE DATABASE async_db;
+CREATE USER admin_user WITH PASSWORD 'secret';
+GRANT ALL PRIVILEGES ON DATABASE async_db TO admin;
+ALTER ROLE admin_user SUPERUSER;
