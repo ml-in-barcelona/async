@@ -1,8 +1,8 @@
-(lang dune 2.0)
+(lang dune 2.2)
 (generate_opam_files true)
 
 (name async_app)
-(version 0.1.0)
+(version 0.0.1)
 
 (authors "davesnx")
 (license "BSD-2")
@@ -14,12 +14,13 @@
 
 (package
  (name async_app)
- (synopsis "async app synopsis")
- (description "async app description")
+ (synopsis "Async app synopsis")
+ (description "Async app description")
  (depends
   ;; General system dependencies
-  (dune (>= 2))
+  (dune (>= 2.2))
   (ocaml (>= 4.10.0))
+  (core (>= 0.14.0))
 
   ;; Database interface
   (caqti (>= 1.2.1))
@@ -28,11 +29,14 @@
   (ppx_rapper (and (>= 0.9.2) (< 2.0)))
 
   ;; Web toolkit
-  (opium (>= 0.17.1))
+  (opium (= 0.20.0))
   (routes (and (>= 0.8.0) (< 0.9.0)))
-  (reason (>= 3.6.0))
+  (reason (and (>= 3.6.0) (< 4.0.0)))
   (uri (and (>= 3.1.0) (< 4.0.0)))
   (atdgen (and (>= 2.2.1) (< 2.3.0)))
+
+  ;; Test framework
+  (alcotest (>= 1.2.0))
 
   ;; HTML generation
   (tyxml :dev)
@@ -40,5 +44,5 @@
   (tyxml-syntax :dev)
 
   ;; Dev dependencies
-  (ocamlformat :dev)
+  (ocaml-lsp-server :dev)
 ))

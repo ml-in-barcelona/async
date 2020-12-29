@@ -1,38 +1,81 @@
+.DEFAULT_GOAL := build
+
 project_name = async_app
-
 opam_file = $(project_name).opam
+DUNE=opam exec -- dune
 
-.PHONY: create-switch deps fmt run run-debug migrate rollback
+.PHONY: build
+build:
+	# Build the app
+	dune build @all
 
-# Create a local opam switch
-create-switch:
+.PHONY: install
+install:
+	# Install the locked dependencies
+	opam install --locked --deps-only --with-doc --with-test -y .
+
+.PHONY: install_new_and_lock
+install_new_and_lock:
+	# Install the new dependencies so that they can be locked after
+	opam install --deps-only --with-doc --with-test -y .
+	opam lock .
+
+.PHONY: dev
+dev:
+	# Create a local opam switch and install deps
 	opam switch create . 4.10.0 --deps-only
+	opam install -y ocaml-lsp-server dune
+	make install
 
+.PHONY: watch
+watch:
+	watchexec -w server \
+	--exts re,rei,ml,mli,atd,json -r -c \
+	"$(MAKE) run"
+
+.PHONY: fmt
+fmt:
+	# Format
+	$(DUNE) build @fmt --auto-promote
+
+.PHONY: test
+test:
+	# Run unit tests
+	$(DUNE) test --force
+
+.PHONY: run
+run:
+	$(DUNE) exec $(project_name)
+
+.PHONY: run-debug
+run-debug:
+	# Build and run the app with Opium's internal debug messages visible
+	$(DUNE) exec $(project_name) -- --debug
+
+.PHONY: migrate
+migrate:
+	# Run the database migrations defined in migrate/migrate.ml
+	$(DUNE) exec migrate
+
+.PHONY: rollback
+rollback:
+	# Run the database rollback defined in migrate/rollback.ml
+	$(DUNE) exec rollback
+
+.PHONY: lock
+lock:
+	# Generate the lock files
+	opam lock .
+
+.PHONY: deps
 # Alias to update the opam file and install the needed deps
 deps: $(opam_file)
 
-fmt:
-	dune build @fmt --auto-promote
-
-# Build and run the app
-run:
-	dune exec $(project_name)
-
-# Build and run the app with Opium's internal debug messages visible
-run-debug:
-	dune exec $(project_name) -- --debug
-
-# Run the database migrations defined in migrate/migrate.ml
-migrate:
-	dune exec migrate_async_app
-
-# Run the database rollback defined in migrate/rollback.ml
-rollback:
-	dune exec rollback_async_app
+.PHONY: clean
+clean:
+	$(DUNE) clean
 
 # Update the package dependencies when new deps are added to dune-project
-$(opam_file): dune-project
-	-dune build @install        # Update the $(project_name).opam file
-	-git add $(opam_file)       # opam uses the state of master for it updates
-	-git commit $(opam_file) -m "Updating package dependencies"
-	opam install . --deps-only  # Install the new dependencies
+$(opam_file): dune-project lock
+	$(DUNE) build @install        # Update the $(project_name).opam file
+	opam install --locked --deps-only --with-doc --with-test -y .

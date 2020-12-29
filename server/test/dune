@@ -1,3 +1,4 @@
 (test
- (name async_app)
- (libraries opium))
+ (name Test)
+ (libraries opium alcotest shared)
+)

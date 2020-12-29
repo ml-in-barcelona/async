@@ -2,20 +2,27 @@ FROM ocaml/opam2:debian-10-ocaml-4.10 as base
 
 WORKDIR /async_app
 
+# Update opam-repository imperatively
+RUN cd ~/opam-repository && (git cat-file -e 1089e2fbbb25dd2518069e614b4ed8f7088763ca || git fetch origin master) && git reset -q --hard 1089e2fbbb25dd2518069e614b4ed8f7088763ca && git log --no-decorate -n1 --oneline && opam update -u
+
+RUN eval $(opam env)
+
 # Install dependencies
 COPY async_app.opam .
-RUN opam pin add -yn async_app . && \
-    opam depext async_app && \
-    opam install . --deps-only
+COPY async_app.opam.locked .
+RUN opam pin add -yn async_app .
+RUN opam depext async_app --with-test --update -iy
+RUN OPAMCURL="curl --tlsv1 -kv" opam install . --locked --with-doc --with-test
 
 # Build the server app. Note: The chown is somehow necessary, as
 # without it the `dune build` command will fail with
 # permission errors.
 # We also need to take note of the dependencies from depext.
 COPY . .
-RUN sudo chown -R opam:nogroup . && \
-    opam exec dune build && \
-    opam depext -ln async_app > depexts
+RUN sudo chown -R opam:nogroup .
+RUN opam exec dune build
+RUN opam depext -ln async_app > depexts
+# RUN dune test --force
 
 # Build client app
 FROM node:12.18.3-buster as client

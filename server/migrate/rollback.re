@@ -1,3 +1,5 @@
+open Async_app;
+
 let drop_excerpts_table = [%rapper
   execute({sql|
     DROP TABLE excerpts

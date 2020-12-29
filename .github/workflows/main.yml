@@ -5,49 +5,125 @@ on: [push]
 env:
   CACHE_IMAGE: davesnx/async_app
   DOCKER_BUILDKIT: 1
+  # /tmp/* are the folders with permisions by the github actions actor
+  CACHE_FOLDER: /tmp/.buildx-cache
 
 jobs:
-  build:
-    name: Build app
+  build-docker:
+    name: Build Docker
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master
-        uses: actions/checkout@v1
-      - name: Log in to docker hub
-        run: docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASS }}
-      - name: Build base from dockerfile
-        run: |
-          docker build \
-            --target base \
-            --cache-from $CACHE_IMAGE:base \
-            --tag $CACHE_IMAGE:base \
-            --file ./Dockerfile \
-            --build-arg BUILDKIT_INLINE_CACHE=1 \
-            "."
-      - name: Build client from dockerfile
-        run: |
-          docker build \
-            --target client \
-            --cache-from $CACHE_IMAGE:base \
-            --cache-from $CACHE_IMAGE:client \
-            --tag $CACHE_IMAGE:client \
-            --file ./Dockerfile \
-            --build-arg BUILDKIT_INLINE_CACHE=1 \
-            "."
-      - name: Build stage from dockerfile
-        run: |
-          docker build \
-            --target stage \
-            --cache-from $CACHE_IMAGE:base \
-            --cache-from $CACHE_IMAGE:client \
-            --cache-from $CACHE_IMAGE:stage \
-            --tag $CACHE_IMAGE:stage \
-            --file ./Dockerfile \
-            --build-arg BUILDKIT_INLINE_CACHE=1 \
-            "."
-      - name: Push base image to docker hub
-        run: docker push $CACHE_IMAGE:base
-      - name: Push client image to docker hub
-        run: docker push $CACHE_IMAGE:client
-      - name: Push stage image to docker hub
-        run: docker push $CACHE_IMAGE:stage
+        uses: actions/checkout@v2
+
+      # https://github.com/docker/build-push-action#leverage-github-cache
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Cache Docker cache layers
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.CACHE_FOLDER }}
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PASS }}
+
+      - name: Build and push ${{ env.CACHE_IMAGE }}:base
+        uses: docker/build-push-action@v2
+        with:
+          target: base
+          push: true
+          tags: ${{ env.CACHE_IMAGE }}:base
+          cache-from: type=local,src=${{ env.CACHE_FOLDER }}
+          cache-to: type=local,dest=${{ env.CACHE_FOLDER }},mode=max
+
+      - name: Build and push ${{ env.CACHE_IMAGE }}:client
+        uses: docker/build-push-action@v2
+        with:
+          target: client
+          push: true
+          tags: ${{ env.CACHE_IMAGE }}:client
+          cache-from: type=local,src=${{ env.CACHE_FOLDER }}
+          cache-to: type=local,dest=${{ env.CACHE_FOLDER }},mode=max
+
+      - name: Build stage ${{ env.CACHE_IMAGE }}:stage
+        uses: docker/build-push-action@v2
+        with:
+          target: stage
+          push: true
+          tags: ${{ env.CACHE_IMAGE }}:stage
+          cache-from: type=local,src=${{ env.CACHE_FOLDER }}
+          cache-to: type=local,dest=${{ env.CACHE_FOLDER }},mode=max
+
+  build-and-test:
+    name: Build and Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+        ocaml-version:
+          - 4.10.0
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Retrieve opam cache
+        uses: actions/cache@v2
+        if: runner.os != 'Windows'
+        id: cache-opam
+        with:
+          path: ~/.opam
+          key: v1-${{ runner.os }}-opam-${{ matrix.ocaml-version }}-${{ hashFiles('*.opam.locked') }}
+          restore-keys: |
+            v1-${{ runner.os }}-opam-${{ matrix.ocaml-version }}-
+
+      - name: Use latest LTS Node.js release
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Use OCaml ${{ matrix.ocaml-version }}
+        uses: avsm/setup-ocaml@v1
+        with:
+          ocaml-version: ${{ matrix.ocaml-version }}
+
+      - name: Print OCaml version
+        run: opam exec -- ocaml --version
+
+      - name: Install system dependencies (Windows)
+        if: runner.os == 'Windows'
+        run: opam depext conf-libev conf-pkg-config
+
+      - name: Install system dependencies (Unix)
+        if: runner.os != 'Windows'
+        run: opam depext conf-libev
+
+      - name: Update opam repository
+        if: steps.cache-opam.outputs.cache-hit != 'true'
+        run: opam update
+
+      - name: Install Opam dependencies
+        if: steps.cache-opam.outputs.cache-hit != 'true'
+        run: opam exec -- make install
+
+      - name: Fix broken opam state
+        if: steps.cache-opam.outputs.cache-hit == 'true'
+        run: opam upgrade --fixup
+
+      - name: Build
+        run: opam exec -- make build
+
+      - name: Test
+        run: opam exec -- make test
