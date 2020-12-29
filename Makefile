@@ -7,7 +7,7 @@ DUNE=opam exec -- dune
 .PHONY: build
 build:
 	# Build the app
-	dune build @all
+	$(DUNE) build @all
 
 .PHONY: install
 install:
