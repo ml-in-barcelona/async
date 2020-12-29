@@ -10,9 +10,10 @@ services:
       POSTGRES_PASSWORD: secret
       PGDATA: /var/lib/postgresql/data
     volumes:
-      - db-data:/var/lib/postgresql/data
+      # - db-data:/var/lib/postgresql/data
+      - $PWD/server/db/bootstrap.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "5432:5432"
+      - "${ASYNC_PG_PORT:-5432}:5432"
 
   pgadmin:
     image: dpage/pgadmin4:4.18
