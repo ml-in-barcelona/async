@@ -14,8 +14,8 @@
     "server": "webpack-dev-server",
     "db:down": "docker-compose -f docker-compose.dev.yml down --volumes",
     "db:up": "docker-compose -f docker-compose.dev.yml up",
-    "backend": "yarn wait-db && make migrate && make watch",
-    "wait-db": "wait-on tcp:${ASYNC_PG_PORT:-5432} --timeout 5000",
+    "backend": "yarn wait-db && make migrate; make watch",
+    "wait-db": "wait-on tcp:${ASYNC_PG_PORT:-5432} --delay 2000 --timeout 5000",
     "start": "yarn db:down && concurrently --kill-others --names db,reason,webpack,backend 'yarn db:up' 'yarn watch' 'yarn server' 'yarn backend'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
