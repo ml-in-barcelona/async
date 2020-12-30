@@ -2,6 +2,5 @@
  (public_name async_app)
  (name main)
  (flags (:standard -w -27))
- (libraries async_app opium str cohttp-lwt-unix lwt yojson ppx_deriving_yojson.runtime)
- (preprocess (pps ppx_deriving_yojson ppx_deriving.std))
+ (libraries async_app opium)
 )
