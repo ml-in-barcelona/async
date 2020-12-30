@@ -4,7 +4,6 @@
   "scripts": {
     "styles": "tailwind build client/src/styles.css -o client/src/bundled.css",
     "prebuild": "yarn styles",
-    "prewatch": "yarn styles",
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w -ws _ ",
     "clean": "bsb -clean-world",
@@ -16,7 +15,7 @@
     "db:up": "docker-compose -f docker-compose.dev.yml up",
     "backend": "yarn wait-db && make migrate; make watch",
     "wait-db": "wait-on tcp:${ASYNC_PG_PORT:-5432} --delay 2000 --timeout 5000",
-    "start": "yarn db:down && concurrently --kill-others --names db,reason,webpack,backend 'yarn db:up' 'yarn watch' 'yarn server' 'yarn backend'",
+    "start": "yarn db:down && concurrently --kill-others --names db,reason,webpack,backend 'yarn db:up' 'yarn watch' 'yarn styles && yarn server' 'yarn backend'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
