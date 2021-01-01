@@ -102,7 +102,7 @@ module Handlers = struct
     let headers = Headers.add Headers.empty "Content-Type" "application/json" in
     Response.make ~headers ~body:(Body.of_string body) () in
     Lwt.return @@ of_string' s
-    
+
     let authors_with_excerpts req =
       let open Lwt in
       Db.Get.authors req

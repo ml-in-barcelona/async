@@ -31,7 +31,7 @@ dev:
 watch:
 	watchexec -w server \
 	--exts re,rei,ml,mli,atd,json -r -c \
-	"$(MAKE) run"
+	"$(MAKE) run-debug"
 
 .PHONY: fmt
 fmt:

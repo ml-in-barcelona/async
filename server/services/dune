@@ -2,6 +2,5 @@
  (public_name services)
  (name services)
  (flags (:standard -w -27))
- (libraries str cohttp-lwt-unix lwt yojson ppx_deriving_yojson.runtime)
- (preprocess (pps ppx_deriving_yojson ppx_deriving.std))
+ (libraries github)
 )
