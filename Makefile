@@ -2,7 +2,7 @@
 
 project_name = async_app
 opam_file = $(project_name).opam
-DUNE=opam exec -- dune
+DUNE = opam exec -- dune
 
 .PHONY: build
 build:
@@ -31,7 +31,7 @@ dev:
 watch:
 	watchexec -w server \
 	--exts re,rei,ml,mli,atd,json -r -c \
-	"$(MAKE) run"
+	"$(MAKE) run-debug"
 
 .PHONY: fmt
 fmt:
