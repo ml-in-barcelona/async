@@ -12,7 +12,7 @@ COPY async_app.opam .
 COPY async_app.opam.locked .
 RUN opam pin add -yn async_app .
 RUN opam depext async_app --with-test --update -iy
-RUN OPAMCURL="curl --tlsv1 -kv" opam install . --locked --with-doc --with-test
+RUN OPAMCURL="curl --tlsv1 -kv" opam install . --locked
 
 # Build the server app. Note: The chown is somehow necessary, as
 # without it the `dune build` command will fail with
