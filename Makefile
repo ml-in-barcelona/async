@@ -11,14 +11,8 @@ build:
 
 .PHONY: install
 install:
-	# Install the locked dependencies
-	opam install --locked --deps-only --with-doc --with-test -y .
-
-.PHONY: install_new_and_lock
-install_new_and_lock:
-	# Install the new dependencies so that they can be locked after
+	# Install the dependencies
 	opam install --deps-only --with-doc --with-test -y .
-	opam lock .
 
 .PHONY: dev
 dev:
@@ -62,11 +56,6 @@ rollback:
 	# Run the database rollback defined in migrate/rollback.ml
 	$(DUNE) exec rollback
 
-.PHONY: lock
-lock:
-	# Generate the lock files
-	opam lock .
-
 .PHONY: deps
 # Alias to update the opam file and install the needed deps
 deps: $(opam_file)
@@ -76,6 +65,6 @@ clean:
 	$(DUNE) clean
 
 # Update the package dependencies when new deps are added to dune-project
-$(opam_file): dune-project lock
+$(opam_file): dune-project
 	$(DUNE) build @install        # Update the $(project_name).opam file
-	opam install --locked --deps-only --with-doc --with-test -y .
+	opam install --deps-only --with-doc --with-test -y .
