@@ -1,6 +1,0 @@
-(executable
- (public_name services)
- (name services)
- (flags (:standard -w -27))
- (libraries github)
-)
