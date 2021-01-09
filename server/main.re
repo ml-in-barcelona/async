@@ -27,6 +27,9 @@ let set_logger = () =>
 /** Run the application */
 let () = {
   set_logger();
+
+  Services.wat();
+
   /* run_command' generates a CLI that configures a deferred run of the app */
   switch (App.run_command'(app)) {
   /* The deferred unit signals the deferred execution of the app */

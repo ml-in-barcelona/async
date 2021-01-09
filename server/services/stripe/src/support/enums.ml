@@ -20,9 +20,9 @@ type bank = [
 | `Van_lanschot [@printer fun fmt _ -> Format.pp_print_string fmt "van_lanschot"] [@name "van_lanschot"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let bank_of_yojson json = bank_of_yojson (`List [json])
+let bank_of_yojson json = (`List [json])
 let bank_to_yojson e =
-    match bank_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -37,9 +37,9 @@ type status = [
 | `Won [@printer fun fmt _ -> Format.pp_print_string fmt "won"] [@name "won"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let status_of_yojson json = status_of_yojson (`List [json])
+let status_of_yojson json = (`List [json])
 let status_to_yojson e =
-    match status_to_yojson e with
+  match e with
     | `List [json] -> json
     | json -> json
 
@@ -49,9 +49,9 @@ type issuing_cardholder_status = [
 | `Inactive [@printer fun fmt _ -> Format.pp_print_string fmt "inactive"] [@name "inactive"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_cardholder_status_of_yojson json = issuing_cardholder_status_of_yojson (`List [json])
+let issuing_cardholder_status_of_yojson json = (`List [json])
 let issuing_cardholder_status_to_yojson e =
-    match issuing_cardholder_status_to_yojson e with
+  match e with
     | `List [json] -> json
     | json -> json
 
@@ -63,9 +63,9 @@ type inline_object_96_status = [
 | `Returned [@printer fun fmt _ -> Format.pp_print_string fmt "returned"] [@name "returned"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let inline_object_96_status_of_yojson json = inline_object_96_status_of_yojson (`List [json])
+let inline_object_96_status_of_yojson json = (`List [json])
 let inline_object_96_status_to_yojson e =
-    match inline_object_96_status_to_yojson e with
+  match e with
     | `List [json] -> json
     | json -> json
 
@@ -75,9 +75,9 @@ type inventory_create_specs_type = [
 | `Infinite [@printer fun fmt _ -> Format.pp_print_string fmt "infinite"] [@name "infinite"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let inventory_create_specs_type_of_yojson json = inventory_create_specs_type_of_yojson (`List [json])
+let inventory_create_specs_type_of_yojson json = (`List [json])
 let inventory_create_specs_type_to_yojson e =
-    match inventory_create_specs_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -86,9 +86,9 @@ type usage_type = [
 | `Metered [@printer fun fmt _ -> Format.pp_print_string fmt "metered"] [@name "metered"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let usage_type_of_yojson json = usage_type_of_yojson (`List [json])
+let usage_type_of_yojson json = (`List [json])
 let usage_type_to_yojson e =
-    match usage_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -98,9 +98,9 @@ type version = [
 | `_2Period2Period0 [@printer fun fmt _ -> Format.pp_print_string fmt "2.2.0"] [@name "2.2.0"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let version_of_yojson json = version_of_yojson (`List [json])
+let version_of_yojson json = (`List [json])
 let version_to_yojson e =
-    match version_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -116,9 +116,9 @@ type customer_balance_transaction_type = [
 | `Unspent_receiver_credit [@printer fun fmt _ -> Format.pp_print_string fmt "unspent_receiver_credit"] [@name "unspent_receiver_credit"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let customer_balance_transaction_type_of_yojson json = customer_balance_transaction_type_of_yojson (`List [json])
+let customer_balance_transaction_type_of_yojson json = (`List [json])
 let customer_balance_transaction_type_to_yojson e =
-    match customer_balance_transaction_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -129,9 +129,9 @@ type status_0 = [
 | `Succeeded [@printer fun fmt _ -> Format.pp_print_string fmt "succeeded"] [@name "succeeded"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let status_0_of_yojson json = status_0_of_yojson (`List [json])
+let status_0_of_yojson json = (`List [json])
 let status_0_to_yojson e =
-    match status_0_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -140,9 +140,9 @@ type issuing_card_type = [
 | `_virtual [@printer fun fmt _ -> Format.pp_print_string fmt "virtual"] [@name "virtual"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_card_type_of_yojson json = issuing_card_type_of_yojson (`List [json])
+let issuing_card_type_of_yojson json = (`List [json])
 let issuing_card_type_to_yojson e =
-    match issuing_card_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -153,9 +153,9 @@ type account_type = [
 | `Unknown [@printer fun fmt _ -> Format.pp_print_string fmt "unknown"] [@name "unknown"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let account_type_of_yojson json = account_type_of_yojson (`List [json])
+let account_type_of_yojson json = (`List [json])
 let account_type_to_yojson e =
-    match account_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -164,9 +164,9 @@ type issuing_card_shipping_type = [
 | `Individual [@printer fun fmt _ -> Format.pp_print_string fmt "individual"] [@name "individual"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_card_shipping_type_of_yojson json = issuing_card_shipping_type_of_yojson (`List [json])
+let issuing_card_shipping_type_of_yojson json = (`List [json])
 let issuing_card_shipping_type_to_yojson e =
-    match issuing_card_shipping_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -180,9 +180,9 @@ type payment_intent_status = [
 | `Succeeded [@printer fun fmt _ -> Format.pp_print_string fmt "succeeded"] [@name "succeeded"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_intent_status_of_yojson json = payment_intent_status_of_yojson (`List [json])
+let payment_intent_status_of_yojson json = (`List [json])
 let payment_intent_status_to_yojson e =
-    match payment_intent_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -190,9 +190,9 @@ type radar_early_fraud_warning_object = [
 | `RadarPeriodearly_fraud_warning [@printer fun fmt _ -> Format.pp_print_string fmt "radar.early_fraud_warning"] [@name "radar.early_fraud_warning"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let radar_early_fraud_warning_object_of_yojson json = radar_early_fraud_warning_object_of_yojson (`List [json])
+let radar_early_fraud_warning_object_of_yojson json = (`List [json])
 let radar_early_fraud_warning_object_to_yojson e =
-    match radar_early_fraud_warning_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -200,9 +200,9 @@ type bank_account_object = [
 | `Bank_account [@printer fun fmt _ -> Format.pp_print_string fmt "bank_account"] [@name "bank_account"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let bank_account_object_of_yojson json = bank_account_object_of_yojson (`List [json])
+let bank_account_object_of_yojson json = (`List [json])
 let bank_account_object_to_yojson e =
-    match bank_account_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -211,9 +211,9 @@ type request_three_d_secure = [
 | `Automatic [@printer fun fmt _ -> Format.pp_print_string fmt "automatic"] [@name "automatic"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let request_three_d_secure_of_yojson json = request_three_d_secure_of_yojson (`List [json])
+let request_three_d_secure_of_yojson json = (`List [json])
 let request_three_d_secure_to_yojson e =
-    match request_three_d_secure_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -223,9 +223,9 @@ type duration = [
 | `Repeating [@printer fun fmt _ -> Format.pp_print_string fmt "repeating"] [@name "repeating"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let duration_of_yojson json = duration_of_yojson (`List [json])
+let duration_of_yojson json = (`List [json])
 let duration_to_yojson e =
-    match duration_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -233,9 +233,9 @@ type topup_object = [
 | `Topup [@printer fun fmt _ -> Format.pp_print_string fmt "topup"] [@name "topup"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let topup_object_of_yojson json = topup_object_of_yojson (`List [json])
+let topup_object_of_yojson json = (`List [json])
 let topup_object_to_yojson e =
-    match topup_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -245,9 +245,9 @@ type source_type = [
 | `Fpx [@printer fun fmt _ -> Format.pp_print_string fmt "fpx"] [@name "fpx"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let source_type_of_yojson json = source_type_of_yojson (`List [json])
+let source_type_of_yojson json = (`List [json])
 let source_type_to_yojson e =
-    match source_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -255,9 +255,9 @@ type apple_pay_domain_object = [
 | `Apple_pay_domain [@printer fun fmt _ -> Format.pp_print_string fmt "apple_pay_domain"] [@name "apple_pay_domain"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let apple_pay_domain_object_of_yojson json = apple_pay_domain_object_of_yojson (`List [json])
+let apple_pay_domain_object_of_yojson json = (`List [json])
 let apple_pay_domain_object_to_yojson e =
-    match apple_pay_domain_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -267,9 +267,9 @@ type issuing_card_status = [
 | `Inactive [@printer fun fmt _ -> Format.pp_print_string fmt "inactive"] [@name "inactive"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_card_status_of_yojson json = issuing_card_status_of_yojson (`List [json])
+let issuing_card_status_of_yojson json = (`List [json])
 let issuing_card_status_to_yojson e =
-    match issuing_card_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -280,9 +280,9 @@ type value = [
 | `Out_of_stock [@printer fun fmt _ -> Format.pp_print_string fmt "out_of_stock"] [@name "out_of_stock"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let value_of_yojson json = value_of_yojson (`List [json])
+let value_of_yojson json = (`List [json])
 let value_to_yojson e =
-    match value_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -295,9 +295,9 @@ type payment_method_card_wallet_type = [
 | `Visa_checkout [@printer fun fmt _ -> Format.pp_print_string fmt "visa_checkout"] [@name "visa_checkout"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_card_wallet_type_of_yojson json = payment_method_card_wallet_type_of_yojson (`List [json])
+let payment_method_card_wallet_type_of_yojson json = (`List [json])
 let payment_method_card_wallet_type_to_yojson e =
-    match payment_method_card_wallet_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -305,9 +305,9 @@ type balance_transaction_object = [
 | `Balance_transaction [@printer fun fmt _ -> Format.pp_print_string fmt "balance_transaction"] [@name "balance_transaction"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let balance_transaction_object_of_yojson json = balance_transaction_object_of_yojson (`List [json])
+let balance_transaction_object_of_yojson json = (`List [json])
 let balance_transaction_object_to_yojson e =
-    match balance_transaction_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -316,9 +316,9 @@ type tiers_mode = [
 | `Volume [@printer fun fmt _ -> Format.pp_print_string fmt "volume"] [@name "volume"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let tiers_mode_of_yojson json = tiers_mode_of_yojson (`List [json])
+let tiers_mode_of_yojson json = (`List [json])
 let tiers_mode_to_yojson e =
-    match tiers_mode_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -329,9 +329,9 @@ type tax_id_verification_status = [
 | `Verified [@printer fun fmt _ -> Format.pp_print_string fmt "verified"] [@name "verified"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let tax_id_verification_status_of_yojson json = tax_id_verification_status_of_yojson (`List [json])
+let tax_id_verification_status_of_yojson json = (`List [json])
 let tax_id_verification_status_to_yojson e =
-    match tax_id_verification_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -363,9 +363,9 @@ type payment_method_details_p24_bank = [
 | `Volkswagen_bank [@printer fun fmt _ -> Format.pp_print_string fmt "volkswagen_bank"] [@name "volkswagen_bank"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_details_p24_bank_of_yojson json = payment_method_details_p24_bank_of_yojson (`List [json])
+let payment_method_details_p24_bank_of_yojson json = (`List [json])
 let payment_method_details_p24_bank_to_yojson e =
-    match payment_method_details_p24_bank_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -375,9 +375,9 @@ type type_0 = [
 | `Standard [@printer fun fmt _ -> Format.pp_print_string fmt "standard"] [@name "standard"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let type_0_of_yojson json = type_0_of_yojson (`List [json])
+let type_0_of_yojson json = (`List [json])
 let type_0_to_yojson e =
-    match type_0_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -385,9 +385,9 @@ type billing_portal_session_object = [
 | `Billing_portalPeriodsession [@printer fun fmt _ -> Format.pp_print_string fmt "billing_portal.session"] [@name "billing_portal.session"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let billing_portal_session_object_of_yojson json = billing_portal_session_object_of_yojson (`List [json])
+let billing_portal_session_object_of_yojson json = (`List [json])
 let billing_portal_session_object_to_yojson e =
-    match billing_portal_session_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -395,9 +395,9 @@ type issuing_cardholder_object = [
 | `IssuingPeriodcardholder [@printer fun fmt _ -> Format.pp_print_string fmt "issuing.cardholder"] [@name "issuing.cardholder"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_cardholder_object_of_yojson json = issuing_cardholder_object_of_yojson (`List [json])
+let issuing_cardholder_object_of_yojson json = (`List [json])
 let issuing_cardholder_object_to_yojson e =
-    match issuing_cardholder_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -406,9 +406,9 @@ type payout_type = [
 | `Card [@printer fun fmt _ -> Format.pp_print_string fmt "card"] [@name "card"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payout_type_of_yojson json = payout_type_of_yojson (`List [json])
+let payout_type_of_yojson json = (`List [json])
 let payout_type_to_yojson e =
-    match payout_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -418,9 +418,9 @@ type setup_future_usage = [
 | `On_session [@printer fun fmt _ -> Format.pp_print_string fmt "on_session"] [@name "on_session"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let setup_future_usage_of_yojson json = setup_future_usage_of_yojson (`List [json])
+let setup_future_usage_of_yojson json = (`List [json])
 let setup_future_usage_to_yojson e =
-    match setup_future_usage_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -428,9 +428,9 @@ type capability_object = [
 | `Capability [@printer fun fmt _ -> Format.pp_print_string fmt "capability"] [@name "capability"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let capability_object_of_yojson json = capability_object_of_yojson (`List [json])
+let capability_object_of_yojson json = (`List [json])
 let capability_object_to_yojson e =
-    match capability_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -439,9 +439,9 @@ type type_1 = [
 | `Individual [@printer fun fmt _ -> Format.pp_print_string fmt "individual"] [@name "individual"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let type_1_of_yojson json = type_1_of_yojson (`List [json])
+let type_1_of_yojson json = (`List [json])
 let type_1_to_yojson e =
-    match type_1_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -462,9 +462,9 @@ type inline_object_104_type = [
 | `Sofort [@printer fun fmt _ -> Format.pp_print_string fmt "sofort"] [@name "sofort"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let inline_object_104_type_of_yojson json = inline_object_104_type_of_yojson (`List [json])
+let inline_object_104_type_of_yojson json = (`List [json])
 let inline_object_104_type_to_yojson e =
-    match inline_object_104_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -472,9 +472,9 @@ type payment_method_details_card_installments_plan_type = [
 | `Fixed_count [@printer fun fmt _ -> Format.pp_print_string fmt "fixed_count"] [@name "fixed_count"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_details_card_installments_plan_type_of_yojson json = payment_method_details_card_installments_plan_type_of_yojson (`List [json])
+let payment_method_details_card_installments_plan_type_of_yojson json = (`List [json])
 let payment_method_details_card_installments_plan_type_to_yojson e =
-    match payment_method_details_card_installments_plan_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -513,9 +513,9 @@ type balance_transaction_type = [
 | `Transfer_refund [@printer fun fmt _ -> Format.pp_print_string fmt "transfer_refund"] [@name "transfer_refund"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let balance_transaction_type_of_yojson json = balance_transaction_type_of_yojson (`List [json])
+let balance_transaction_type_of_yojson json = (`List [json])
 let balance_transaction_type_to_yojson e =
-    match balance_transaction_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -526,9 +526,9 @@ type reason = [
 | `Product_unsatisfactory [@printer fun fmt _ -> Format.pp_print_string fmt "product_unsatisfactory"] [@name "product_unsatisfactory"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let reason_of_yojson json = reason_of_yojson (`List [json])
+let reason_of_yojson json = (`List [json])
 let reason_to_yojson e =
-    match reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -547,9 +547,9 @@ type purpose = [
 | `Tax_document_user_upload [@printer fun fmt _ -> Format.pp_print_string fmt "tax_document_user_upload"] [@name "tax_document_user_upload"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let purpose_of_yojson json = purpose_of_yojson (`List [json])
+let purpose_of_yojson json = (`List [json])
 let purpose_to_yojson e =
-    match purpose_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -557,9 +557,9 @@ type charge_object = [
 | `Charge [@printer fun fmt _ -> Format.pp_print_string fmt "charge"] [@name "charge"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let charge_object_of_yojson json = charge_object_of_yojson (`List [json])
+let charge_object_of_yojson json = (`List [json])
 let charge_object_to_yojson e =
-    match charge_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -567,9 +567,9 @@ type setup_intent_object = [
 | `Setup_intent [@printer fun fmt _ -> Format.pp_print_string fmt "setup_intent"] [@name "setup_intent"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let setup_intent_object_of_yojson json = setup_intent_object_of_yojson (`List [json])
+let setup_intent_object_of_yojson json = (`List [json])
 let setup_intent_object_to_yojson e =
-    match setup_intent_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -582,9 +582,9 @@ type issuing_card_shipping_status = [
 | `Shipped [@printer fun fmt _ -> Format.pp_print_string fmt "shipped"] [@name "shipped"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_card_shipping_status_of_yojson json = issuing_card_shipping_status_of_yojson (`List [json])
+let issuing_card_shipping_status_of_yojson json = (`List [json])
 let issuing_card_shipping_status_to_yojson e =
-    match issuing_card_shipping_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -593,9 +593,9 @@ type billing_scheme = [
 | `Tiered [@printer fun fmt _ -> Format.pp_print_string fmt "tiered"] [@name "tiered"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let billing_scheme_of_yojson json = billing_scheme_of_yojson (`List [json])
+let billing_scheme_of_yojson json = (`List [json])
 let billing_scheme_to_yojson e =
-    match billing_scheme_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -603,9 +603,9 @@ type issuing_authorization_object = [
 | `IssuingPeriodauthorization [@printer fun fmt _ -> Format.pp_print_string fmt "issuing.authorization"] [@name "issuing.authorization"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_authorization_object_of_yojson json = issuing_authorization_object_of_yojson (`List [json])
+let issuing_authorization_object_of_yojson json = (`List [json])
 let issuing_authorization_object_to_yojson e =
-    match issuing_authorization_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -616,9 +616,9 @@ type interval = [
 | `Year [@printer fun fmt _ -> Format.pp_print_string fmt "year"] [@name "year"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let interval_of_yojson json = interval_of_yojson (`List [json])
+let interval_of_yojson json = (`List [json])
 let interval_to_yojson e =
-    match interval_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -626,9 +626,9 @@ type setup_attempt_object = [
 | `Setup_attempt [@printer fun fmt _ -> Format.pp_print_string fmt "setup_attempt"] [@name "setup_attempt"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let setup_attempt_object_of_yojson json = setup_attempt_object_of_yojson (`List [json])
+let setup_attempt_object_of_yojson json = (`List [json])
 let setup_attempt_object_to_yojson e =
-    match setup_attempt_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -638,9 +638,9 @@ type mandate_params_interval = [
 | `Variable [@printer fun fmt _ -> Format.pp_print_string fmt "variable"] [@name "variable"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let mandate_params_interval_of_yojson json = mandate_params_interval_of_yojson (`List [json])
+let mandate_params_interval_of_yojson json = (`List [json])
 let mandate_params_interval_to_yojson e =
-    match mandate_params_interval_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -648,9 +648,9 @@ type order_item_object = [
 | `Order_item [@printer fun fmt _ -> Format.pp_print_string fmt "order_item"] [@name "order_item"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let order_item_object_of_yojson json = order_item_object_of_yojson (`List [json])
+let order_item_object_of_yojson json = (`List [json])
 let order_item_object_to_yojson e =
-    match order_item_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -658,9 +658,9 @@ type network = [
 | `Visa [@printer fun fmt _ -> Format.pp_print_string fmt "visa"] [@name "visa"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let network_of_yojson json = network_of_yojson (`List [json])
+let network_of_yojson json = (`List [json])
 let network_to_yojson e =
-    match network_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -669,9 +669,9 @@ type credit_note_status = [
 | `Void [@printer fun fmt _ -> Format.pp_print_string fmt "void"] [@name "void"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let credit_note_status_of_yojson json = credit_note_status_of_yojson (`List [json])
+let credit_note_status_of_yojson json = (`List [json])
 let credit_note_status_to_yojson e =
-    match credit_note_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -683,9 +683,9 @@ type topup_status = [
 | `Succeeded [@printer fun fmt _ -> Format.pp_print_string fmt "succeeded"] [@name "succeeded"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let topup_status_of_yojson json = topup_status_of_yojson (`List [json])
+let topup_status_of_yojson json = (`List [json])
 let topup_status_to_yojson e =
-    match topup_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -697,9 +697,9 @@ type authorization_method = [
 | `Swipe [@printer fun fmt _ -> Format.pp_print_string fmt "swipe"] [@name "swipe"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let authorization_method_of_yojson json = authorization_method_of_yojson (`List [json])
+let authorization_method_of_yojson json = (`List [json])
 let authorization_method_to_yojson e =
-    match authorization_method_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -709,9 +709,9 @@ type proration_behavior = [
 | `None [@printer fun fmt _ -> Format.pp_print_string fmt "none"] [@name "none"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let proration_behavior_of_yojson json = proration_behavior_of_yojson (`List [json])
+let proration_behavior_of_yojson json = (`List [json])
 let proration_behavior_to_yojson e =
-    match proration_behavior_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -719,9 +719,9 @@ type country_spec_object = [
 | `Country_spec [@printer fun fmt _ -> Format.pp_print_string fmt "country_spec"] [@name "country_spec"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let country_spec_object_of_yojson json = country_spec_object_of_yojson (`List [json])
+let country_spec_object_of_yojson json = (`List [json])
 let country_spec_object_to_yojson e =
-    match country_spec_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -729,9 +729,9 @@ type source_object = [
 | `Source [@printer fun fmt _ -> Format.pp_print_string fmt "source"] [@name "source"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let source_object_of_yojson json = source_object_of_yojson (`List [json])
+let source_object_of_yojson json = (`List [json])
 let source_object_to_yojson e =
-    match source_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -750,9 +750,9 @@ type payment_method_types = [
 | `Sofort [@printer fun fmt _ -> Format.pp_print_string fmt "sofort"] [@name "sofort"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_types_of_yojson json = payment_method_types_of_yojson (`List [json])
+let payment_method_types_of_yojson json = (`List [json])
 let payment_method_types_to_yojson e =
-    match payment_method_types_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -775,9 +775,9 @@ type structure = [
 | `Unincorporated_non_profit [@printer fun fmt _ -> Format.pp_print_string fmt "unincorporated_non_profit"] [@name "unincorporated_non_profit"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let structure_of_yojson json = structure_of_yojson (`List [json])
+let structure_of_yojson json = (`List [json])
 let structure_to_yojson e =
-    match structure_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -785,9 +785,9 @@ type credit_note_object = [
 | `Credit_note [@printer fun fmt _ -> Format.pp_print_string fmt "credit_note"] [@name "credit_note"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let credit_note_object_of_yojson json = credit_note_object_of_yojson (`List [json])
+let credit_note_object_of_yojson json = (`List [json])
 let credit_note_object_to_yojson e =
-    match credit_note_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -795,9 +795,9 @@ type line_item_object = [
 | `Line_item [@printer fun fmt _ -> Format.pp_print_string fmt "line_item"] [@name "line_item"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let line_item_object_of_yojson json = line_item_object_of_yojson (`List [json])
+let line_item_object_of_yojson json = (`List [json])
 let line_item_object_to_yojson e =
-    match line_item_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -808,9 +808,9 @@ type cancellation_reason = [
 | `Requested_by_customer [@printer fun fmt _ -> Format.pp_print_string fmt "requested_by_customer"] [@name "requested_by_customer"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let cancellation_reason_of_yojson json = cancellation_reason_of_yojson (`List [json])
+let cancellation_reason_of_yojson json = (`List [json])
 let cancellation_reason_to_yojson e =
-    match cancellation_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -818,9 +818,9 @@ type checkout_session_object = [
 | `CheckoutPeriodsession [@printer fun fmt _ -> Format.pp_print_string fmt "checkout.session"] [@name "checkout.session"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let checkout_session_object_of_yojson json = checkout_session_object_of_yojson (`List [json])
+let checkout_session_object_of_yojson json = (`List [json])
 let checkout_session_object_to_yojson e =
-    match checkout_session_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -992,9 +992,9 @@ type enabled_events = [
 | `TransferPeriodupdated [@printer fun fmt _ -> Format.pp_print_string fmt "transfer.updated"] [@name "transfer.updated"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let enabled_events_of_yojson json = enabled_events_of_yojson (`List [json])
+let enabled_events_of_yojson json = (`List [json])
 let enabled_events_to_yojson e =
-    match enabled_events_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1003,9 +1003,9 @@ type billing_cycle_anchor = [
 | `Phase_start [@printer fun fmt _ -> Format.pp_print_string fmt "phase_start"] [@name "phase_start"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let billing_cycle_anchor_of_yojson json = billing_cycle_anchor_of_yojson (`List [json])
+let billing_cycle_anchor_of_yojson json = (`List [json])
 let billing_cycle_anchor_to_yojson e =
-    match billing_cycle_anchor_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1032,9 +1032,9 @@ type payment_method_details_fpx_bank = [
 | `Uob [@printer fun fmt _ -> Format.pp_print_string fmt "uob"] [@name "uob"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_details_fpx_bank_of_yojson json = payment_method_details_fpx_bank_of_yojson (`List [json])
+let payment_method_details_fpx_bank_of_yojson json = (`List [json])
 let payment_method_details_fpx_bank_to_yojson e =
-    match payment_method_details_fpx_bank_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1042,9 +1042,9 @@ type deleted_terminal_reader_object = [
 | `TerminalPeriodreader [@printer fun fmt _ -> Format.pp_print_string fmt "terminal.reader"] [@name "terminal.reader"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_terminal_reader_object_of_yojson json = deleted_terminal_reader_object_of_yojson (`List [json])
+let deleted_terminal_reader_object_of_yojson json = (`List [json])
 let deleted_terminal_reader_object_to_yojson e =
-    match deleted_terminal_reader_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1064,9 +1064,9 @@ type payment_method_data_params_type = [
 | `Sofort [@printer fun fmt _ -> Format.pp_print_string fmt "sofort"] [@name "sofort"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_data_params_type_of_yojson json = payment_method_data_params_type_of_yojson (`List [json])
+let payment_method_data_params_type_of_yojson json = (`List [json])
 let payment_method_data_params_type_to_yojson e =
-    match payment_method_data_params_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1076,9 +1076,9 @@ type address_line1_check = [
 | `Not_provided [@printer fun fmt _ -> Format.pp_print_string fmt "not_provided"] [@name "not_provided"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let address_line1_check_of_yojson json = address_line1_check_of_yojson (`List [json])
+let address_line1_check_of_yojson json = (`List [json])
 let address_line1_check_to_yojson e =
-    match address_line1_check_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1092,9 +1092,9 @@ type preferred_language = [
 | `Pl [@printer fun fmt _ -> Format.pp_print_string fmt "pl"] [@name "pl"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let preferred_language_of_yojson json = preferred_language_of_yojson (`List [json])
+let preferred_language_of_yojson json = (`List [json])
 let preferred_language_to_yojson e =
-    match preferred_language_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1128,9 +1128,9 @@ type payment_method_details_eps_bank = [
 | `Vr_bank_braunau [@printer fun fmt _ -> Format.pp_print_string fmt "vr_bank_braunau"] [@name "vr_bank_braunau"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_details_eps_bank_of_yojson json = payment_method_details_eps_bank_of_yojson (`List [json])
+let payment_method_details_eps_bank_of_yojson json = (`List [json])
 let payment_method_details_eps_bank_to_yojson e =
-    match payment_method_details_eps_bank_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1138,9 +1138,9 @@ type listaccountcapability_object = [
 | `List [@printer fun fmt _ -> Format.pp_print_string fmt "list"] [@name "list"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let listaccountcapability_object_of_yojson json = listaccountcapability_object_of_yojson (`List [json])
+let listaccountcapability_object_of_yojson json = (`List [json])
 let listaccountcapability_object_to_yojson e =
-    match listaccountcapability_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1151,9 +1151,9 @@ type closed_reason = [
 | `Refunded_as_fraud [@printer fun fmt _ -> Format.pp_print_string fmt "refunded_as_fraud"] [@name "refunded_as_fraud"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let closed_reason_of_yojson json = closed_reason_of_yojson (`List [json])
+let closed_reason_of_yojson json = (`List [json])
 let closed_reason_to_yojson e =
-    match closed_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1164,9 +1164,9 @@ type tax_exempt = [
 | `Reverse [@printer fun fmt _ -> Format.pp_print_string fmt "reverse"] [@name "reverse"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let tax_exempt_of_yojson json = tax_exempt_of_yojson (`List [json])
+let tax_exempt_of_yojson json = (`List [json])
 let tax_exempt_to_yojson e =
-    match tax_exempt_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1174,9 +1174,9 @@ type transfer_reversal_object = [
 | `Transfer_reversal [@printer fun fmt _ -> Format.pp_print_string fmt "transfer_reversal"] [@name "transfer_reversal"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let transfer_reversal_object_of_yojson json = transfer_reversal_object_of_yojson (`List [json])
+let transfer_reversal_object_of_yojson json = (`List [json])
 let transfer_reversal_object_to_yojson e =
-    match transfer_reversal_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1184,9 +1184,9 @@ type payment_method_details_card_installments_plan_interval = [
 | `Month [@printer fun fmt _ -> Format.pp_print_string fmt "month"] [@name "month"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_details_card_installments_plan_interval_of_yojson json = payment_method_details_card_installments_plan_interval_of_yojson (`List [json])
+let payment_method_details_card_installments_plan_interval_of_yojson json = (`List [json])
 let payment_method_details_card_installments_plan_interval_to_yojson e =
-    match payment_method_details_card_installments_plan_interval_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1194,9 +1194,9 @@ type issuing_transaction_object = [
 | `IssuingPeriodtransaction [@printer fun fmt _ -> Format.pp_print_string fmt "issuing.transaction"] [@name "issuing.transaction"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_transaction_object_of_yojson json = issuing_transaction_object_of_yojson (`List [json])
+let issuing_transaction_object_of_yojson json = (`List [json])
 let issuing_transaction_object_to_yojson e =
-    match issuing_transaction_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1205,9 +1205,9 @@ type usage = [
 | `Single_use [@printer fun fmt _ -> Format.pp_print_string fmt "single_use"] [@name "single_use"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let usage_of_yojson json = usage_of_yojson (`List [json])
+let usage_of_yojson json = (`List [json])
 let usage_to_yojson e =
-    match usage_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1216,9 +1216,9 @@ type mandate_type = [
 | `Single_use [@printer fun fmt _ -> Format.pp_print_string fmt "single_use"] [@name "single_use"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let mandate_type_of_yojson json = mandate_type_of_yojson (`List [json])
+let mandate_type_of_yojson json = (`List [json])
 let mandate_type_to_yojson e =
-    match mandate_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1226,9 +1226,9 @@ type payment_intent_object = [
 | `Payment_intent [@printer fun fmt _ -> Format.pp_print_string fmt "payment_intent"] [@name "payment_intent"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_intent_object_of_yojson json = payment_intent_object_of_yojson (`List [json])
+let payment_intent_object_of_yojson json = (`List [json])
 let payment_intent_object_to_yojson e =
-    match payment_intent_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1237,9 +1237,9 @@ type action = [
 | `Set [@printer fun fmt _ -> Format.pp_print_string fmt "set"] [@name "set"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let action_of_yojson json = action_of_yojson (`List [json])
+let action_of_yojson json = (`List [json])
 let action_to_yojson e =
-    match action_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1247,9 +1247,9 @@ type login_link_object = [
 | `Login_link [@printer fun fmt _ -> Format.pp_print_string fmt "login_link"] [@name "login_link"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let login_link_object_of_yojson json = login_link_object_of_yojson (`List [json])
+let login_link_object_of_yojson json = (`List [json])
 let login_link_object_to_yojson e =
-    match login_link_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1257,9 +1257,9 @@ type customer_balance_transaction_object = [
 | `Customer_balance_transaction [@printer fun fmt _ -> Format.pp_print_string fmt "customer_balance_transaction"] [@name "customer_balance_transaction"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let customer_balance_transaction_object_of_yojson json = customer_balance_transaction_object_of_yojson (`List [json])
+let customer_balance_transaction_object_of_yojson json = (`List [json])
 let customer_balance_transaction_object_to_yojson e =
-    match customer_balance_transaction_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1269,9 +1269,9 @@ type user_report = [
 | `Safe [@printer fun fmt _ -> Format.pp_print_string fmt "safe"] [@name "safe"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let user_report_of_yojson json = user_report_of_yojson (`List [json])
+let user_report_of_yojson json = (`List [json])
 let user_report_to_yojson e =
-    match user_report_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1320,9 +1320,9 @@ type code = [
 | `Verification_failed_tax_id_not_issued [@printer fun fmt _ -> Format.pp_print_string fmt "verification_failed_tax_id_not_issued"] [@name "verification_failed_tax_id_not_issued"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let code_of_yojson json = code_of_yojson (`List [json])
+let code_of_yojson json = (`List [json])
 let code_to_yojson e =
-    match code_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1331,9 +1331,9 @@ type authentication_flow = [
 | `Frictionless [@printer fun fmt _ -> Format.pp_print_string fmt "frictionless"] [@name "frictionless"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let authentication_flow_of_yojson json = authentication_flow_of_yojson (`List [json])
+let authentication_flow_of_yojson json = (`List [json])
 let authentication_flow_to_yojson e =
-    match authentication_flow_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1341,9 +1341,9 @@ type ephemeral_key_object = [
 | `Ephemeral_key [@printer fun fmt _ -> Format.pp_print_string fmt "ephemeral_key"] [@name "ephemeral_key"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let ephemeral_key_object_of_yojson json = ephemeral_key_object_of_yojson (`List [json])
+let ephemeral_key_object_of_yojson json = (`List [json])
 let ephemeral_key_object_to_yojson e =
-    match ephemeral_key_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1354,9 +1354,9 @@ type replacement_reason = [
 | `Stolen [@printer fun fmt _ -> Format.pp_print_string fmt "stolen"] [@name "stolen"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let replacement_reason_of_yojson json = replacement_reason_of_yojson (`List [json])
+let replacement_reason_of_yojson json = (`List [json])
 let replacement_reason_to_yojson e =
-    match replacement_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1365,9 +1365,9 @@ type available_payout_methods = [
 | `Standard [@printer fun fmt _ -> Format.pp_print_string fmt "standard"] [@name "standard"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let available_payout_methods_of_yojson json = available_payout_methods_of_yojson (`List [json])
+let available_payout_methods_of_yojson json = (`List [json])
 let available_payout_methods_to_yojson e =
-    match available_payout_methods_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1375,9 +1375,9 @@ type order_return_object = [
 | `Order_return [@printer fun fmt _ -> Format.pp_print_string fmt "order_return"] [@name "order_return"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let order_return_object_of_yojson json = order_return_object_of_yojson (`List [json])
+let order_return_object_of_yojson json = (`List [json])
 let order_return_object_to_yojson e =
-    match order_return_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1386,9 +1386,9 @@ type line_item_type = [
 | `Subscription [@printer fun fmt _ -> Format.pp_print_string fmt "subscription"] [@name "subscription"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let line_item_type_of_yojson json = line_item_type_of_yojson (`List [json])
+let line_item_type_of_yojson json = (`List [json])
 let line_item_type_to_yojson e =
-    match line_item_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1428,9 +1428,9 @@ type invoices_resource_invoice_tax_id_type = [
 | `Za_vat [@printer fun fmt _ -> Format.pp_print_string fmt "za_vat"] [@name "za_vat"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let invoices_resource_invoice_tax_id_type_of_yojson json = invoices_resource_invoice_tax_id_type_of_yojson (`List [json])
+let invoices_resource_invoice_tax_id_type_of_yojson json = (`List [json])
 let invoices_resource_invoice_tax_id_type_to_yojson e =
-    match invoices_resource_invoice_tax_id_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1439,9 +1439,9 @@ type capture_method = [
 | `Manual [@printer fun fmt _ -> Format.pp_print_string fmt "manual"] [@name "manual"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let capture_method_of_yojson json = capture_method_of_yojson (`List [json])
+let capture_method_of_yojson json = (`List [json])
 let capture_method_to_yojson e =
-    match capture_method_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1449,9 +1449,9 @@ type platform_tax_fee_object = [
 | `Platform_tax_fee [@printer fun fmt _ -> Format.pp_print_string fmt "platform_tax_fee"] [@name "platform_tax_fee"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let platform_tax_fee_object_of_yojson json = platform_tax_fee_object_of_yojson (`List [json])
+let platform_tax_fee_object_of_yojson json = (`List [json])
 let platform_tax_fee_object_to_yojson e =
-    match platform_tax_fee_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1462,9 +1462,9 @@ type submit_type = [
 | `Pay [@printer fun fmt _ -> Format.pp_print_string fmt "pay"] [@name "pay"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let submit_type_of_yojson json = submit_type_of_yojson (`List [json])
+let submit_type_of_yojson json = (`List [json])
 let submit_type_to_yojson e =
-    match submit_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1472,9 +1472,9 @@ type issuing_settlement_object = [
 | `IssuingPeriodsettlement [@printer fun fmt _ -> Format.pp_print_string fmt "issuing.settlement"] [@name "issuing.settlement"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_settlement_object_of_yojson json = issuing_settlement_object_of_yojson (`List [json])
+let issuing_settlement_object_of_yojson json = (`List [json])
 let issuing_settlement_object_to_yojson e =
-    match issuing_settlement_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1488,9 +1488,9 @@ type payment_intent_cancellation_reason = [
 | `Void_invoice [@printer fun fmt _ -> Format.pp_print_string fmt "void_invoice"] [@name "void_invoice"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_intent_cancellation_reason_of_yojson json = payment_intent_cancellation_reason_of_yojson (`List [json])
+let payment_intent_cancellation_reason_of_yojson json = (`List [json])
 let payment_intent_cancellation_reason_to_yojson e =
-    match payment_intent_cancellation_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1498,9 +1498,9 @@ type issuer_fraud_record_object = [
 | `Issuer_fraud_record [@printer fun fmt _ -> Format.pp_print_string fmt "issuer_fraud_record"] [@name "issuer_fraud_record"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuer_fraud_record_object_of_yojson json = issuer_fraud_record_object_of_yojson (`List [json])
+let issuer_fraud_record_object_of_yojson json = (`List [json])
 let issuer_fraud_record_object_to_yojson e =
-    match issuer_fraud_record_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -1513,9 +1513,9 @@ type invoice_status = [
 | `Void [@printer fun fmt _ -> Format.pp_print_string fmt "void"] [@name "void"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let invoice_status_of_yojson json = invoice_status_of_yojson (`List [json])
+let invoice_status_of_yojson json = (`List [json])
 let invoice_status_to_yojson e =
-    match invoice_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2116,9 +2116,9 @@ type timezone = [
 | `Zulu [@printer fun fmt _ -> Format.pp_print_string fmt "Zulu"] [@name "Zulu"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let timezone_of_yojson json = timezone_of_yojson (`List [json])
+let timezone_of_yojson json = (`List [json])
 let timezone_to_yojson e =
-    match timezone_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2126,9 +2126,9 @@ type deleted_recipient_object = [
 | `Recipient [@printer fun fmt _ -> Format.pp_print_string fmt "recipient"] [@name "recipient"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_recipient_object_of_yojson json = deleted_recipient_object_of_yojson (`List [json])
+let deleted_recipient_object_of_yojson json = (`List [json])
 let deleted_recipient_object_to_yojson e =
-    match deleted_recipient_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2137,9 +2137,9 @@ type customer_acceptance_type = [
 | `Online [@printer fun fmt _ -> Format.pp_print_string fmt "online"] [@name "online"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let customer_acceptance_type_of_yojson json = customer_acceptance_type_of_yojson (`List [json])
+let customer_acceptance_type_of_yojson json = (`List [json])
 let customer_acceptance_type_to_yojson e =
-    match customer_acceptance_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2152,9 +2152,9 @@ type issuing_card_spending_limit_interval = [
 | `Yearly [@printer fun fmt _ -> Format.pp_print_string fmt "yearly"] [@name "yearly"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_card_spending_limit_interval_of_yojson json = issuing_card_spending_limit_interval_of_yojson (`List [json])
+let issuing_card_spending_limit_interval_of_yojson json = (`List [json])
 let issuing_card_spending_limit_interval_to_yojson e =
-    match issuing_card_spending_limit_interval_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2165,9 +2165,9 @@ type aggregate_usage = [
 | `Sum [@printer fun fmt _ -> Format.pp_print_string fmt "sum"] [@name "sum"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let aggregate_usage_of_yojson json = aggregate_usage_of_yojson (`List [json])
+let aggregate_usage_of_yojson json = (`List [json])
 let aggregate_usage_to_yojson e =
-    match aggregate_usage_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2175,9 +2175,9 @@ type issuing_card_object = [
 | `IssuingPeriodcard [@printer fun fmt _ -> Format.pp_print_string fmt "issuing.card"] [@name "issuing.card"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_card_object_of_yojson json = issuing_card_object_of_yojson (`List [json])
+let issuing_card_object_of_yojson json = (`List [json])
 let issuing_card_object_to_yojson e =
-    match issuing_card_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2185,9 +2185,9 @@ type payout_object = [
 | `Payout [@printer fun fmt _ -> Format.pp_print_string fmt "payout"] [@name "payout"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payout_object_of_yojson json = payout_object_of_yojson (`List [json])
+let payout_object_of_yojson json = (`List [json])
 let payout_object_to_yojson e =
-    match payout_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2195,9 +2195,9 @@ type deleted_discount_object = [
 | `Discount [@printer fun fmt _ -> Format.pp_print_string fmt "discount"] [@name "discount"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_discount_object_of_yojson json = deleted_discount_object_of_yojson (`List [json])
+let deleted_discount_object_of_yojson json = (`List [json])
 let deleted_discount_object_to_yojson e =
-    match deleted_discount_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2206,9 +2206,9 @@ type product_type = [
 | `Service [@printer fun fmt _ -> Format.pp_print_string fmt "service"] [@name "service"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let product_type_of_yojson json = product_type_of_yojson (`List [json])
+let product_type_of_yojson json = (`List [json])
 let product_type_to_yojson e =
-    match product_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2220,9 +2220,9 @@ type notification_method = [
 | `Stripe_email [@printer fun fmt _ -> Format.pp_print_string fmt "stripe_email"] [@name "stripe_email"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let notification_method_of_yojson json = notification_method_of_yojson (`List [json])
+let notification_method_of_yojson json = (`List [json])
 let notification_method_to_yojson e =
-    match notification_method_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2231,9 +2231,9 @@ type payment_intent_setup_future_usage = [
 | `On_session [@printer fun fmt _ -> Format.pp_print_string fmt "on_session"] [@name "on_session"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_intent_setup_future_usage_of_yojson json = payment_intent_setup_future_usage_of_yojson (`List [json])
+let payment_intent_setup_future_usage_of_yojson json = (`List [json])
 let payment_intent_setup_future_usage_to_yojson e =
-    match payment_intent_setup_future_usage_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2247,9 +2247,9 @@ type past_due = [
 | `IndividualPeriodverificationPerioddocument [@printer fun fmt _ -> Format.pp_print_string fmt "individual.verification.document"] [@name "individual.verification.document"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let past_due_of_yojson json = past_due_of_yojson (`List [json])
+let past_due_of_yojson json = (`List [json])
 let past_due_to_yojson e =
-    match past_due_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2257,9 +2257,9 @@ type balance_object = [
 | `Balance [@printer fun fmt _ -> Format.pp_print_string fmt "balance"] [@name "balance"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let balance_object_of_yojson json = balance_object_of_yojson (`List [json])
+let balance_object_of_yojson json = (`List [json])
 let balance_object_to_yojson e =
-    match balance_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2267,9 +2267,9 @@ type deleted_price_object = [
 | `Price [@printer fun fmt _ -> Format.pp_print_string fmt "price"] [@name "price"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_price_object_of_yojson json = deleted_price_object_of_yojson (`List [json])
+let deleted_price_object_of_yojson json = (`List [json])
 let deleted_price_object_to_yojson e =
-    match deleted_price_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2277,9 +2277,9 @@ type review_object = [
 | `Review [@printer fun fmt _ -> Format.pp_print_string fmt "review"] [@name "review"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let review_object_of_yojson json = review_object_of_yojson (`List [json])
+let review_object_of_yojson json = (`List [json])
 let review_object_to_yojson e =
-    match review_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2289,9 +2289,9 @@ type customer_tax_exempt = [
 | `Reverse [@printer fun fmt _ -> Format.pp_print_string fmt "reverse"] [@name "reverse"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let customer_tax_exempt_of_yojson json = customer_tax_exempt_of_yojson (`List [json])
+let customer_tax_exempt_of_yojson json = (`List [json])
 let customer_tax_exempt_to_yojson e =
-    match customer_tax_exempt_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2299,9 +2299,9 @@ type reporting_report_type_object = [
 | `ReportingPeriodreport_type [@printer fun fmt _ -> Format.pp_print_string fmt "reporting.report_type"] [@name "reporting.report_type"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let reporting_report_type_object_of_yojson json = reporting_report_type_object_of_yojson (`List [json])
+let reporting_report_type_object_of_yojson json = (`List [json])
 let reporting_report_type_object_to_yojson e =
-    match reporting_report_type_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2311,9 +2311,9 @@ type account_holder_type = [
 | `Individual [@printer fun fmt _ -> Format.pp_print_string fmt "individual"] [@name "individual"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let account_holder_type_of_yojson json = account_holder_type_of_yojson (`List [json])
+let account_holder_type_of_yojson json = (`List [json])
 let account_holder_type_to_yojson e =
-    match account_holder_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2324,9 +2324,9 @@ type payment_method_details_bancontact_preferred_language = [
 | `Nl [@printer fun fmt _ -> Format.pp_print_string fmt "nl"] [@name "nl"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_details_bancontact_preferred_language_of_yojson json = payment_method_details_bancontact_preferred_language_of_yojson (`List [json])
+let payment_method_details_bancontact_preferred_language_of_yojson json = (`List [json])
 let payment_method_details_bancontact_preferred_language_to_yojson e =
-    match payment_method_details_bancontact_preferred_language_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2334,9 +2334,9 @@ type deleted_sku_object = [
 | `Sku [@printer fun fmt _ -> Format.pp_print_string fmt "sku"] [@name "sku"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_sku_object_of_yojson json = deleted_sku_object_of_yojson (`List [json])
+let deleted_sku_object_of_yojson json = (`List [json])
 let deleted_sku_object_to_yojson e =
-    match deleted_sku_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2344,9 +2344,9 @@ type deleted_terminal_location_object = [
 | `TerminalPeriodlocation [@printer fun fmt _ -> Format.pp_print_string fmt "terminal.location"] [@name "terminal.location"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_terminal_location_object_of_yojson json = deleted_terminal_location_object_of_yojson (`List [json])
+let deleted_terminal_location_object_of_yojson json = (`List [json])
 let deleted_terminal_location_object_to_yojson e =
-    match deleted_terminal_location_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2354,9 +2354,9 @@ type deleted_plan_object = [
 | `Plan [@printer fun fmt _ -> Format.pp_print_string fmt "plan"] [@name "plan"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_plan_object_of_yojson json = deleted_plan_object_of_yojson (`List [json])
+let deleted_plan_object_of_yojson json = (`List [json])
 let deleted_plan_object_to_yojson e =
-    match deleted_plan_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2370,9 +2370,9 @@ type issuing_dispute_evidence_reason = [
 | `Service_not_as_described [@printer fun fmt _ -> Format.pp_print_string fmt "service_not_as_described"] [@name "service_not_as_described"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_dispute_evidence_reason_of_yojson json = issuing_dispute_evidence_reason_of_yojson (`List [json])
+let issuing_dispute_evidence_reason_of_yojson json = (`List [json])
 let issuing_dispute_evidence_reason_to_yojson e =
-    match issuing_dispute_evidence_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2380,9 +2380,9 @@ type order_object = [
 | `Order [@printer fun fmt _ -> Format.pp_print_string fmt "order"] [@name "order"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let order_object_of_yojson json = order_object_of_yojson (`List [json])
+let order_object_of_yojson json = (`List [json])
 let order_object_to_yojson e =
-    match order_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2390,9 +2390,9 @@ type item_object = [
 | `Item [@printer fun fmt _ -> Format.pp_print_string fmt "item"] [@name "item"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let item_object_of_yojson json = item_object_of_yojson (`List [json])
+let item_object_of_yojson json = (`List [json])
 let item_object_to_yojson e =
-    match item_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2401,9 +2401,9 @@ type carrier = [
 | `Usps [@printer fun fmt _ -> Format.pp_print_string fmt "usps"] [@name "usps"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let carrier_of_yojson json = carrier_of_yojson (`List [json])
+let carrier_of_yojson json = (`List [json])
 let carrier_to_yojson e =
-    match carrier_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2411,9 +2411,9 @@ type exchange_rate_object = [
 | `Exchange_rate [@printer fun fmt _ -> Format.pp_print_string fmt "exchange_rate"] [@name "exchange_rate"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let exchange_rate_object_of_yojson json = exchange_rate_object_of_yojson (`List [json])
+let exchange_rate_object_of_yojson json = (`List [json])
 let exchange_rate_object_to_yojson e =
-    match exchange_rate_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2423,9 +2423,9 @@ type service = [
 | `Standard [@printer fun fmt _ -> Format.pp_print_string fmt "standard"] [@name "standard"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let service_of_yojson json = service_of_yojson (`List [json])
+let service_of_yojson json = (`List [json])
 let service_to_yojson e =
-    match service_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2433,9 +2433,9 @@ type source_transaction_object = [
 | `Source_transaction [@printer fun fmt _ -> Format.pp_print_string fmt "source_transaction"] [@name "source_transaction"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let source_transaction_object_of_yojson json = source_transaction_object_of_yojson (`List [json])
+let source_transaction_object_of_yojson json = (`List [json])
 let source_transaction_object_to_yojson e =
-    match source_transaction_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2679,9 +2679,9 @@ type allowed_countries = [
 | `ZZ [@printer fun fmt _ -> Format.pp_print_string fmt "ZZ"] [@name "ZZ"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let allowed_countries_of_yojson json = allowed_countries_of_yojson (`List [json])
+let allowed_countries_of_yojson json = (`List [json])
 let allowed_countries_to_yojson e =
-    match allowed_countries_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2700,9 +2700,9 @@ type bic = [
 | `TRIONL2U [@printer fun fmt _ -> Format.pp_print_string fmt "TRIONL2U"] [@name "TRIONL2U"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let bic_of_yojson json = bic_of_yojson (`List [json])
+let bic_of_yojson json = (`List [json])
 let bic_to_yojson e =
-    match bic_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2718,9 +2718,9 @@ type status_1 = [
 | `Unpaid [@printer fun fmt _ -> Format.pp_print_string fmt "unpaid"] [@name "unpaid"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let status_1_of_yojson json = status_1_of_yojson (`List [json])
+let status_1_of_yojson json = (`List [json])
 let status_1_to_yojson e =
-    match status_1_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2729,9 +2729,9 @@ type issuing_cardholder_type = [
 | `Individual [@printer fun fmt _ -> Format.pp_print_string fmt "individual"] [@name "individual"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_cardholder_type_of_yojson json = issuing_cardholder_type_of_yojson (`List [json])
+let issuing_cardholder_type_of_yojson json = (`List [json])
 let issuing_cardholder_type_to_yojson e =
-    match issuing_cardholder_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2742,9 +2742,9 @@ type business_type = [
 | `Non_profit [@printer fun fmt _ -> Format.pp_print_string fmt "non_profit"] [@name "non_profit"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let business_type_of_yojson json = business_type_of_yojson (`List [json])
+let business_type_of_yojson json = (`List [json])
 let business_type_to_yojson e =
-    match business_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2753,9 +2753,9 @@ type collect = [
 | `Eventually_due [@printer fun fmt _ -> Format.pp_print_string fmt "eventually_due"] [@name "eventually_due"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let collect_of_yojson json = collect_of_yojson (`List [json])
+let collect_of_yojson json = (`List [json])
 let collect_to_yojson e =
-    match collect_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2765,9 +2765,9 @@ type inline_object_39_reason = [
 | `Requested_by_customer [@printer fun fmt _ -> Format.pp_print_string fmt "requested_by_customer"] [@name "requested_by_customer"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let inline_object_39_reason_of_yojson json = inline_object_39_reason_of_yojson (`List [json])
+let inline_object_39_reason_of_yojson json = (`List [json])
 let inline_object_39_reason_to_yojson e =
-    match inline_object_39_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2777,9 +2777,9 @@ type payment_status = [
 | `Unpaid [@printer fun fmt _ -> Format.pp_print_string fmt "unpaid"] [@name "unpaid"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_status_of_yojson json = payment_status_of_yojson (`List [json])
+let payment_status_of_yojson json = (`List [json])
 let payment_status_to_yojson e =
-    match payment_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2791,9 +2791,9 @@ type status_2 = [
 | `Void [@printer fun fmt _ -> Format.pp_print_string fmt "void"] [@name "void"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let status_2_of_yojson json = status_2_of_yojson (`List [json])
+let status_2_of_yojson json = (`List [json])
 let status_2_to_yojson e =
-    match status_2_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2834,9 +2834,9 @@ type reporting_category = [
 | `Transfer_reversal [@printer fun fmt _ -> Format.pp_print_string fmt "transfer_reversal"] [@name "transfer_reversal"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let reporting_category_of_yojson json = reporting_category_of_yojson (`List [json])
+let reporting_category_of_yojson json = (`List [json])
 let reporting_category_to_yojson e =
-    match reporting_category_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2844,9 +2844,9 @@ type terminal_connection_token_object = [
 | `TerminalPeriodconnection_token [@printer fun fmt _ -> Format.pp_print_string fmt "terminal.connection_token"] [@name "terminal.connection_token"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let terminal_connection_token_object_of_yojson json = terminal_connection_token_object_of_yojson (`List [json])
+let terminal_connection_token_object_of_yojson json = (`List [json])
 let terminal_connection_token_object_to_yojson e =
-    match terminal_connection_token_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2854,9 +2854,9 @@ type card_object = [
 | `Card [@printer fun fmt _ -> Format.pp_print_string fmt "card"] [@name "card"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let card_object_of_yojson json = card_object_of_yojson (`List [json])
+let card_object_of_yojson json = (`List [json])
 let card_object_to_yojson e =
-    match card_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2864,9 +2864,9 @@ type refund_object = [
 | `Refund [@printer fun fmt _ -> Format.pp_print_string fmt "refund"] [@name "refund"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let refund_object_of_yojson json = refund_object_of_yojson (`List [json])
+let refund_object_of_yojson json = (`List [json])
 let refund_object_to_yojson e =
-    match refund_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2876,9 +2876,9 @@ type disabled_reason = [
 | `Under_review [@printer fun fmt _ -> Format.pp_print_string fmt "under_review"] [@name "under_review"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let disabled_reason_of_yojson json = disabled_reason_of_yojson (`List [json])
+let disabled_reason_of_yojson json = (`List [json])
 let disabled_reason_to_yojson e =
-    match disabled_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2888,9 +2888,9 @@ type issuing_transaction_type = [
 | `Refund [@printer fun fmt _ -> Format.pp_print_string fmt "refund"] [@name "refund"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_transaction_type_of_yojson json = issuing_transaction_type_of_yojson (`List [json])
+let issuing_transaction_type_of_yojson json = (`List [json])
 let issuing_transaction_type_to_yojson e =
-    match issuing_transaction_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2900,9 +2900,9 @@ type au_becs_debit_payments = [
 | `Pending [@printer fun fmt _ -> Format.pp_print_string fmt "pending"] [@name "pending"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let au_becs_debit_payments_of_yojson json = au_becs_debit_payments_of_yojson (`List [json])
+let au_becs_debit_payments_of_yojson json = (`List [json])
 let au_becs_debit_payments_to_yojson e =
-    match au_becs_debit_payments_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2910,9 +2910,9 @@ type subscription_object = [
 | `Subscription [@printer fun fmt _ -> Format.pp_print_string fmt "subscription"] [@name "subscription"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let subscription_object_of_yojson json = subscription_object_of_yojson (`List [json])
+let subscription_object_of_yojson json = (`List [json])
 let subscription_object_to_yojson e =
-    match subscription_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2921,9 +2921,9 @@ type device_type = [
 | `Verifone_P400 [@printer fun fmt _ -> Format.pp_print_string fmt "verifone_P400"] [@name "verifone_P400"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let device_type_of_yojson json = device_type_of_yojson (`List [json])
+let device_type_of_yojson json = (`List [json])
 let device_type_to_yojson e =
-    match device_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2931,9 +2931,9 @@ type file_object = [
 | `File [@printer fun fmt _ -> Format.pp_print_string fmt "file"] [@name "file"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let file_object_of_yojson json = file_object_of_yojson (`List [json])
+let file_object_of_yojson json = (`List [json])
 let file_object_to_yojson e =
-    match file_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2945,9 +2945,9 @@ type issuing_dispute_status = [
 | `Won [@printer fun fmt _ -> Format.pp_print_string fmt "won"] [@name "won"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_dispute_status_of_yojson json = issuing_dispute_status_of_yojson (`List [json])
+let issuing_dispute_status_of_yojson json = (`List [json])
 let issuing_dispute_status_to_yojson e =
-    match issuing_dispute_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2955,9 +2955,9 @@ type deleted_subscription_item_object = [
 | `Subscription_item [@printer fun fmt _ -> Format.pp_print_string fmt "subscription_item"] [@name "subscription_item"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_subscription_item_object_of_yojson json = deleted_subscription_item_object_of_yojson (`List [json])
+let deleted_subscription_item_object_of_yojson json = (`List [json])
 let deleted_subscription_item_object_to_yojson e =
-    match deleted_subscription_item_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2965,9 +2965,9 @@ type bitcoin_transaction_object = [
 | `Bitcoin_transaction [@printer fun fmt _ -> Format.pp_print_string fmt "bitcoin_transaction"] [@name "bitcoin_transaction"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let bitcoin_transaction_object_of_yojson json = bitcoin_transaction_object_of_yojson (`List [json])
+let bitcoin_transaction_object_of_yojson json = (`List [json])
 let bitcoin_transaction_object_to_yojson e =
-    match bitcoin_transaction_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2975,9 +2975,9 @@ type scheduled_query_run_object = [
 | `Scheduled_query_run [@printer fun fmt _ -> Format.pp_print_string fmt "scheduled_query_run"] [@name "scheduled_query_run"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let scheduled_query_run_object_of_yojson json = scheduled_query_run_object_of_yojson (`List [json])
+let scheduled_query_run_object_of_yojson json = (`List [json])
 let scheduled_query_run_object_to_yojson e =
-    match scheduled_query_run_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2985,9 +2985,9 @@ type file_link_object = [
 | `File_link [@printer fun fmt _ -> Format.pp_print_string fmt "file_link"] [@name "file_link"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let file_link_object_of_yojson json = file_link_object_of_yojson (`List [json])
+let file_link_object_of_yojson json = (`List [json])
 let file_link_object_to_yojson e =
-    match file_link_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -2996,9 +2996,9 @@ type inline_object_14_type = [
 | `Account_update [@printer fun fmt _ -> Format.pp_print_string fmt "account_update"] [@name "account_update"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let inline_object_14_type_of_yojson json = inline_object_14_type_of_yojson (`List [json])
+let inline_object_14_type_of_yojson json = (`List [json])
 let inline_object_14_type_to_yojson e =
-    match inline_object_14_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3006,9 +3006,9 @@ type event_object = [
 | `Event [@printer fun fmt _ -> Format.pp_print_string fmt "event"] [@name "event"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let event_object_of_yojson json = event_object_of_yojson (`List [json])
+let event_object_of_yojson json = (`List [json])
 let event_object_to_yojson e =
-    match event_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3018,9 +3018,9 @@ type payment_behavior = [
 | `Pending_if_incomplete [@printer fun fmt _ -> Format.pp_print_string fmt "pending_if_incomplete"] [@name "pending_if_incomplete"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_behavior_of_yojson json = payment_behavior_of_yojson (`List [json])
+let payment_behavior_of_yojson json = (`List [json])
 let payment_behavior_to_yojson e =
-    match payment_behavior_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3029,9 +3029,9 @@ type billing_address_collection = [
 | `Required [@printer fun fmt _ -> Format.pp_print_string fmt "required"] [@name "required"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let billing_address_collection_of_yojson json = billing_address_collection_of_yojson (`List [json])
+let billing_address_collection_of_yojson json = (`List [json])
 let billing_address_collection_to_yojson e =
-    match billing_address_collection_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3039,9 +3039,9 @@ type dispute_object = [
 | `Dispute [@printer fun fmt _ -> Format.pp_print_string fmt "dispute"] [@name "dispute"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let dispute_object_of_yojson json = dispute_object_of_yojson (`List [json])
+let dispute_object_of_yojson json = (`List [json])
 let dispute_object_to_yojson e =
-    match dispute_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3049,9 +3049,9 @@ type deleted_product_object = [
 | `Product [@printer fun fmt _ -> Format.pp_print_string fmt "product"] [@name "product"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_product_object_of_yojson json = deleted_product_object_of_yojson (`List [json])
+let deleted_product_object_of_yojson json = (`List [json])
 let deleted_product_object_to_yojson e =
-    match deleted_product_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3059,9 +3059,9 @@ type bitcoin_receiver_object = [
 | `Bitcoin_receiver [@printer fun fmt _ -> Format.pp_print_string fmt "bitcoin_receiver"] [@name "bitcoin_receiver"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let bitcoin_receiver_object_of_yojson json = bitcoin_receiver_object_of_yojson (`List [json])
+let bitcoin_receiver_object_of_yojson json = (`List [json])
 let bitcoin_receiver_object_to_yojson e =
-    match bitcoin_receiver_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3069,9 +3069,9 @@ type coupon_object = [
 | `Coupon [@printer fun fmt _ -> Format.pp_print_string fmt "coupon"] [@name "coupon"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let coupon_object_of_yojson json = coupon_object_of_yojson (`List [json])
+let coupon_object_of_yojson json = (`List [json])
 let coupon_object_to_yojson e =
-    match coupon_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3079,9 +3079,9 @@ type deleted_invoiceitem_object = [
 | `Invoiceitem [@printer fun fmt _ -> Format.pp_print_string fmt "invoiceitem"] [@name "invoiceitem"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_invoiceitem_object_of_yojson json = deleted_invoiceitem_object_of_yojson (`List [json])
+let deleted_invoiceitem_object_of_yojson json = (`List [json])
 let deleted_invoiceitem_object_to_yojson e =
-    match deleted_invoiceitem_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3089,9 +3089,9 @@ type token_object = [
 | `Token [@printer fun fmt _ -> Format.pp_print_string fmt "token"] [@name "token"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let token_object_of_yojson json = token_object_of_yojson (`List [json])
+let token_object_of_yojson json = (`List [json])
 let token_object_to_yojson e =
-    match token_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3101,9 +3101,9 @@ type behavior = [
 | `Void [@printer fun fmt _ -> Format.pp_print_string fmt "void"] [@name "void"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let behavior_of_yojson json = behavior_of_yojson (`List [json])
+let behavior_of_yojson json = (`List [json])
 let behavior_to_yojson e =
-    match behavior_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3146,9 +3146,9 @@ type locale = [
 | `ZhMinusTW [@printer fun fmt _ -> Format.pp_print_string fmt "zh-TW"] [@name "zh-TW"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let locale_of_yojson json = locale_of_yojson (`List [json])
+let locale_of_yojson json = (`List [json])
 let locale_to_yojson e =
-    match locale_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3158,9 +3158,9 @@ type mode = [
 | `Subscription [@printer fun fmt _ -> Format.pp_print_string fmt "subscription"] [@name "subscription"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let mode_of_yojson json = mode_of_yojson (`List [json])
+let mode_of_yojson json = (`List [json])
 let mode_to_yojson e =
-    match mode_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3180,9 +3180,9 @@ type issuing_authorization_request_reason = [
 | `Webhook_timeout [@printer fun fmt _ -> Format.pp_print_string fmt "webhook_timeout"] [@name "webhook_timeout"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_authorization_request_reason_of_yojson json = issuing_authorization_request_reason_of_yojson (`List [json])
+let issuing_authorization_request_reason_of_yojson json = (`List [json])
 let issuing_authorization_request_reason_to_yojson e =
-    match issuing_authorization_request_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3190,9 +3190,9 @@ type usage_record_object = [
 | `Usage_record [@printer fun fmt _ -> Format.pp_print_string fmt "usage_record"] [@name "usage_record"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let usage_record_object_of_yojson json = usage_record_object_of_yojson (`List [json])
+let usage_record_object_of_yojson json = (`List [json])
 let usage_record_object_to_yojson e =
-    match usage_record_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3215,9 +3215,9 @@ type payment_method_type = [
 | `Sofort [@printer fun fmt _ -> Format.pp_print_string fmt "sofort"] [@name "sofort"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_type_of_yojson json = payment_method_type_of_yojson (`List [json])
+let payment_method_type_of_yojson json = (`List [json])
 let payment_method_type_to_yojson e =
-    match payment_method_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3230,9 +3230,9 @@ type country = [
 | `NL [@printer fun fmt _ -> Format.pp_print_string fmt "NL"] [@name "NL"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let country_of_yojson json = country_of_yojson (`List [json])
+let country_of_yojson json = (`List [json])
 let country_to_yojson e =
-    match country_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3246,9 +3246,9 @@ type subscription_status = [
 | `Unpaid [@printer fun fmt _ -> Format.pp_print_string fmt "unpaid"] [@name "unpaid"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let subscription_status_of_yojson json = subscription_status_of_yojson (`List [json])
+let subscription_status_of_yojson json = (`List [json])
 let subscription_status_to_yojson e =
-    match subscription_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3256,9 +3256,9 @@ type issuing_dispute_object = [
 | `IssuingPerioddispute [@printer fun fmt _ -> Format.pp_print_string fmt "issuing.dispute"] [@name "issuing.dispute"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_dispute_object_of_yojson json = issuing_dispute_object_of_yojson (`List [json])
+let issuing_dispute_object_of_yojson json = (`List [json])
 let issuing_dispute_object_to_yojson e =
-    match issuing_dispute_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3266,9 +3266,9 @@ type fee_refund_object = [
 | `Fee_refund [@printer fun fmt _ -> Format.pp_print_string fmt "fee_refund"] [@name "fee_refund"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let fee_refund_object_of_yojson json = fee_refund_object_of_yojson (`List [json])
+let fee_refund_object_of_yojson json = (`List [json])
 let fee_refund_object_to_yojson e =
-    match fee_refund_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3280,9 +3280,9 @@ type capability_status = [
 | `Unrequested [@printer fun fmt _ -> Format.pp_print_string fmt "unrequested"] [@name "unrequested"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let capability_status_of_yojson json = capability_status_of_yojson (`List [json])
+let capability_status_of_yojson json = (`List [json])
 let capability_status_to_yojson e =
-    match capability_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3294,9 +3294,9 @@ type read_method = [
 | `Magnetic_stripe_track2 [@printer fun fmt _ -> Format.pp_print_string fmt "magnetic_stripe_track2"] [@name "magnetic_stripe_track2"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let read_method_of_yojson json = read_method_of_yojson (`List [json])
+let read_method_of_yojson json = (`List [json])
 let read_method_to_yojson e =
-    match read_method_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3311,9 +3311,9 @@ type billing_reason = [
 | `Upcoming [@printer fun fmt _ -> Format.pp_print_string fmt "upcoming"] [@name "upcoming"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let billing_reason_of_yojson json = billing_reason_of_yojson (`List [json])
+let billing_reason_of_yojson json = (`List [json])
 let billing_reason_to_yojson e =
-    match billing_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3322,9 +3322,9 @@ type opened_reason = [
 | `Rule [@printer fun fmt _ -> Format.pp_print_string fmt "rule"] [@name "rule"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let opened_reason_of_yojson json = opened_reason_of_yojson (`List [json])
+let opened_reason_of_yojson json = (`List [json])
 let opened_reason_to_yojson e =
-    match opened_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3332,9 +3332,9 @@ type source_mandate_notification_object = [
 | `Source_mandate_notification [@printer fun fmt _ -> Format.pp_print_string fmt "source_mandate_notification"] [@name "source_mandate_notification"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let source_mandate_notification_object_of_yojson json = source_mandate_notification_object_of_yojson (`List [json])
+let source_mandate_notification_object_of_yojson json = (`List [json])
 let source_mandate_notification_object_to_yojson e =
-    match source_mandate_notification_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3342,9 +3342,9 @@ type tax_rate_object = [
 | `Tax_rate [@printer fun fmt _ -> Format.pp_print_string fmt "tax_rate"] [@name "tax_rate"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let tax_rate_object_of_yojson json = tax_rate_object_of_yojson (`List [json])
+let tax_rate_object_of_yojson json = (`List [json])
 let tax_rate_object_to_yojson e =
-    match tax_rate_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3352,9 +3352,9 @@ type connect_collection_transfer_object = [
 | `Connect_collection_transfer [@printer fun fmt _ -> Format.pp_print_string fmt "connect_collection_transfer"] [@name "connect_collection_transfer"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let connect_collection_transfer_object_of_yojson json = connect_collection_transfer_object_of_yojson (`List [json])
+let connect_collection_transfer_object_of_yojson json = (`List [json])
 let connect_collection_transfer_object_to_yojson e =
-    match connect_collection_transfer_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3363,9 +3363,9 @@ type inline_object_86_status = [
 | `Inactive [@printer fun fmt _ -> Format.pp_print_string fmt "inactive"] [@name "inactive"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let inline_object_86_status_of_yojson json = inline_object_86_status_of_yojson (`List [json])
+let inline_object_86_status_of_yojson json = (`List [json])
 let inline_object_86_status_to_yojson e =
-    match inline_object_86_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3374,9 +3374,9 @@ type return_status = [
 | `Successful [@printer fun fmt _ -> Format.pp_print_string fmt "successful"] [@name "successful"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let return_status_of_yojson json = return_status_of_yojson (`List [json])
+let return_status_of_yojson json = (`List [json])
 let return_status_to_yojson e =
-    match return_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3393,9 +3393,9 @@ type payment_intent_payment_method_options_card_network = [
 | `Visa [@printer fun fmt _ -> Format.pp_print_string fmt "visa"] [@name "visa"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_intent_payment_method_options_card_network_of_yojson json = payment_intent_payment_method_options_card_network_of_yojson (`List [json])
+let payment_intent_payment_method_options_card_network_of_yojson json = (`List [json])
 let payment_intent_payment_method_options_card_network_to_yojson e =
-    match payment_intent_payment_method_options_card_network_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3403,9 +3403,9 @@ type deleted_radar_value_list_item_object = [
 | `RadarPeriodvalue_list_item [@printer fun fmt _ -> Format.pp_print_string fmt "radar.value_list_item"] [@name "radar.value_list_item"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_radar_value_list_item_object_of_yojson json = deleted_radar_value_list_item_object_of_yojson (`List [json])
+let deleted_radar_value_list_item_object_of_yojson json = (`List [json])
 let deleted_radar_value_list_item_object_to_yojson e =
-    match deleted_radar_value_list_item_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3413,9 +3413,9 @@ type payment_method_object = [
 | `Payment_method [@printer fun fmt _ -> Format.pp_print_string fmt "payment_method"] [@name "payment_method"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_object_of_yojson json = payment_method_object_of_yojson (`List [json])
+let payment_method_object_of_yojson json = (`List [json])
 let payment_method_object_to_yojson e =
-    match payment_method_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3423,9 +3423,9 @@ type subscription_schedule_object = [
 | `Subscription_schedule [@printer fun fmt _ -> Format.pp_print_string fmt "subscription_schedule"] [@name "subscription_schedule"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let subscription_schedule_object_of_yojson json = subscription_schedule_object_of_yojson (`List [json])
+let subscription_schedule_object_of_yojson json = (`List [json])
 let subscription_schedule_object_to_yojson e =
-    match subscription_schedule_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3433,9 +3433,9 @@ type reserve_transaction_object = [
 | `Reserve_transaction [@printer fun fmt _ -> Format.pp_print_string fmt "reserve_transaction"] [@name "reserve_transaction"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let reserve_transaction_object_of_yojson json = reserve_transaction_object_of_yojson (`List [json])
+let reserve_transaction_object_of_yojson json = (`List [json])
 let reserve_transaction_object_to_yojson e =
-    match reserve_transaction_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3443,9 +3443,9 @@ type usage_record_summary_object = [
 | `Usage_record_summary [@printer fun fmt _ -> Format.pp_print_string fmt "usage_record_summary"] [@name "usage_record_summary"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let usage_record_summary_object_of_yojson json = usage_record_summary_object_of_yojson (`List [json])
+let usage_record_summary_object_of_yojson json = (`List [json])
 let usage_record_summary_object_to_yojson e =
-    match usage_record_summary_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3484,9 +3484,9 @@ type data_params_type = [
 | `Za_vat [@printer fun fmt _ -> Format.pp_print_string fmt "za_vat"] [@name "za_vat"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let data_params_type_of_yojson json = data_params_type_of_yojson (`List [json])
+let data_params_type_of_yojson json = (`List [json])
 let data_params_type_to_yojson e =
-    match data_params_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3498,9 +3498,9 @@ type subscription_schedule_status = [
 | `Released [@printer fun fmt _ -> Format.pp_print_string fmt "released"] [@name "released"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let subscription_schedule_status_of_yojson json = subscription_schedule_status_of_yojson (`List [json])
+let subscription_schedule_status_of_yojson json = (`List [json])
 let subscription_schedule_status_to_yojson e =
-    match subscription_schedule_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3508,9 +3508,9 @@ type deleted_tax_id_object = [
 | `Tax_id [@printer fun fmt _ -> Format.pp_print_string fmt "tax_id"] [@name "tax_id"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_tax_id_object_of_yojson json = deleted_tax_id_object_of_yojson (`List [json])
+let deleted_tax_id_object_of_yojson json = (`List [json])
 let deleted_tax_id_object_to_yojson e =
-    match deleted_tax_id_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3519,9 +3519,9 @@ type credit_note_type = [
 | `Pre_payment [@printer fun fmt _ -> Format.pp_print_string fmt "pre_payment"] [@name "pre_payment"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let credit_note_type_of_yojson json = credit_note_type_of_yojson (`List [json])
+let credit_note_type_of_yojson json = (`List [json])
 let credit_note_type_to_yojson e =
-    match credit_note_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3532,9 +3532,9 @@ type order_item_specs_type = [
 | `Tax [@printer fun fmt _ -> Format.pp_print_string fmt "tax"] [@name "tax"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let order_item_specs_type_of_yojson json = order_item_specs_type_of_yojson (`List [json])
+let order_item_specs_type_of_yojson json = (`List [json])
 let order_item_specs_type_to_yojson e =
-    match order_item_specs_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3542,9 +3542,9 @@ type transfer_object = [
 | `Transfer [@printer fun fmt _ -> Format.pp_print_string fmt "transfer"] [@name "transfer"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let transfer_object_of_yojson json = transfer_object_of_yojson (`List [json])
+let transfer_object_of_yojson json = (`List [json])
 let transfer_object_to_yojson e =
-    match transfer_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3552,9 +3552,9 @@ type deleted_person_object = [
 | `Person [@printer fun fmt _ -> Format.pp_print_string fmt "person"] [@name "person"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_person_object_of_yojson json = deleted_person_object_of_yojson (`List [json])
+let deleted_person_object_of_yojson json = (`List [json])
 let deleted_person_object_to_yojson e =
-    match deleted_person_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3562,9 +3562,9 @@ type deleted = [
 | `_true [@printer fun fmt _ -> Format.pp_print_string fmt "true"] [@name "true"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_of_yojson json = deleted_of_yojson (`List [json])
+let deleted_of_yojson json = (`List [json])
 let deleted_to_yojson e =
-    match deleted_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3578,9 +3578,9 @@ type item_type = [
 | `String [@printer fun fmt _ -> Format.pp_print_string fmt "string"] [@name "string"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let item_type_of_yojson json = item_type_of_yojson (`List [json])
+let item_type_of_yojson json = (`List [json])
 let item_type_to_yojson e =
-    match item_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3593,9 +3593,9 @@ type setup_intent_status = [
 | `Succeeded [@printer fun fmt _ -> Format.pp_print_string fmt "succeeded"] [@name "succeeded"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let setup_intent_status_of_yojson json = setup_intent_status_of_yojson (`List [json])
+let setup_intent_status_of_yojson json = (`List [json])
 let setup_intent_status_to_yojson e =
-    match setup_intent_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3603,9 +3603,9 @@ type application_fee_object = [
 | `Application_fee [@printer fun fmt _ -> Format.pp_print_string fmt "application_fee"] [@name "application_fee"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let application_fee_object_of_yojson json = application_fee_object_of_yojson (`List [json])
+let application_fee_object_of_yojson json = (`List [json])
 let application_fee_object_to_yojson e =
-    match application_fee_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3616,9 +3616,9 @@ type transfer_schedule_specs_interval = [
 | `Weekly [@printer fun fmt _ -> Format.pp_print_string fmt "weekly"] [@name "weekly"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let transfer_schedule_specs_interval_of_yojson json = transfer_schedule_specs_interval_of_yojson (`List [json])
+let transfer_schedule_specs_interval_of_yojson json = (`List [json])
 let transfer_schedule_specs_interval_to_yojson e =
-    match transfer_schedule_specs_interval_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3626,9 +3626,9 @@ type mandate_object = [
 | `Mandate [@printer fun fmt _ -> Format.pp_print_string fmt "mandate"] [@name "mandate"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let mandate_object_of_yojson json = mandate_object_of_yojson (`List [json])
+let mandate_object_of_yojson json = (`List [json])
 let mandate_object_to_yojson e =
-    match mandate_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3636,9 +3636,9 @@ type account_link_object = [
 | `Account_link [@printer fun fmt _ -> Format.pp_print_string fmt "account_link"] [@name "account_link"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let account_link_object_of_yojson json = account_link_object_of_yojson (`List [json])
+let account_link_object_of_yojson json = (`List [json])
 let account_link_object_to_yojson e =
-    match account_link_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3661,9 +3661,9 @@ type source_transaction_type = [
 | `Wechat [@printer fun fmt _ -> Format.pp_print_string fmt "wechat"] [@name "wechat"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let source_transaction_type_of_yojson json = source_transaction_type_of_yojson (`List [json])
+let source_transaction_type_of_yojson json = (`List [json])
 let source_transaction_type_to_yojson e =
-    match source_transaction_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3674,9 +3674,9 @@ type flow = [
 | `Redirect [@printer fun fmt _ -> Format.pp_print_string fmt "redirect"] [@name "redirect"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let flow_of_yojson json = flow_of_yojson (`List [json])
+let flow_of_yojson json = (`List [json])
 let flow_to_yojson e =
-    match flow_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3779,9 +3779,9 @@ type api_version = [
 | `_2020Minus08Minus27 [@printer fun fmt _ -> Format.pp_print_string fmt "2020-08-27"] [@name "2020-08-27"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let api_version_of_yojson json = api_version_of_yojson (`List [json])
+let api_version_of_yojson json = (`List [json])
 let api_version_to_yojson e =
-    match api_version_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3797,9 +3797,9 @@ type file_purpose = [
 | `Tax_document_user_upload [@printer fun fmt _ -> Format.pp_print_string fmt "tax_document_user_upload"] [@name "tax_document_user_upload"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let file_purpose_of_yojson json = file_purpose_of_yojson (`List [json])
+let file_purpose_of_yojson json = (`List [json])
 let file_purpose_to_yojson e =
-    match file_purpose_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3808,9 +3808,9 @@ type political_exposure = [
 | `None [@printer fun fmt _ -> Format.pp_print_string fmt "none"] [@name "none"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let political_exposure_of_yojson json = political_exposure_of_yojson (`List [json])
+let political_exposure_of_yojson json = (`List [json])
 let political_exposure_to_yojson e =
-    match political_exposure_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3819,9 +3819,9 @@ type collection_method = [
 | `Send_invoice [@printer fun fmt _ -> Format.pp_print_string fmt "send_invoice"] [@name "send_invoice"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let collection_method_of_yojson json = collection_method_of_yojson (`List [json])
+let collection_method_of_yojson json = (`List [json])
 let collection_method_to_yojson e =
-    match collection_method_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3830,9 +3830,9 @@ type credit_note_line_item_type = [
 | `Invoice_line_item [@printer fun fmt _ -> Format.pp_print_string fmt "invoice_line_item"] [@name "invoice_line_item"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let credit_note_line_item_type_of_yojson json = credit_note_line_item_type_of_yojson (`List [json])
+let credit_note_line_item_type_of_yojson json = (`List [json])
 let credit_note_line_item_type_to_yojson e =
-    match credit_note_line_item_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3840,9 +3840,9 @@ type deleted_radar_value_list_object = [
 | `RadarPeriodvalue_list [@printer fun fmt _ -> Format.pp_print_string fmt "radar.value_list"] [@name "radar.value_list"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_radar_value_list_object_of_yojson json = deleted_radar_value_list_object_of_yojson (`List [json])
+let deleted_radar_value_list_object_of_yojson json = (`List [json])
 let deleted_radar_value_list_object_to_yojson e =
-    match deleted_radar_value_list_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3851,9 +3851,9 @@ type issuing_card_cancellation_reason = [
 | `Stolen [@printer fun fmt _ -> Format.pp_print_string fmt "stolen"] [@name "stolen"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_card_cancellation_reason_of_yojson json = issuing_card_cancellation_reason_of_yojson (`List [json])
+let issuing_card_cancellation_reason_of_yojson json = (`List [json])
 let issuing_card_cancellation_reason_to_yojson e =
-    match issuing_card_cancellation_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3861,9 +3861,9 @@ type deleted_webhook_endpoint_object = [
 | `Webhook_endpoint [@printer fun fmt _ -> Format.pp_print_string fmt "webhook_endpoint"] [@name "webhook_endpoint"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_webhook_endpoint_object_of_yojson json = deleted_webhook_endpoint_object_of_yojson (`List [json])
+let deleted_webhook_endpoint_object_of_yojson json = (`List [json])
 let deleted_webhook_endpoint_object_to_yojson e =
-    match deleted_webhook_endpoint_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3871,9 +3871,9 @@ type credit_note_line_item_object = [
 | `Credit_note_line_item [@printer fun fmt _ -> Format.pp_print_string fmt "credit_note_line_item"] [@name "credit_note_line_item"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let credit_note_line_item_object_of_yojson json = credit_note_line_item_object_of_yojson (`List [json])
+let credit_note_line_item_object_of_yojson json = (`List [json])
 let credit_note_line_item_object_to_yojson e =
-    match credit_note_line_item_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3882,9 +3882,9 @@ type price_type = [
 | `Recurring [@printer fun fmt _ -> Format.pp_print_string fmt "recurring"] [@name "recurring"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let price_type_of_yojson json = price_type_of_yojson (`List [json])
+let price_type_of_yojson json = (`List [json])
 let price_type_to_yojson e =
-    match price_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3898,9 +3898,9 @@ type api_errors_type = [
 | `Rate_limit_error [@printer fun fmt _ -> Format.pp_print_string fmt "rate_limit_error"] [@name "rate_limit_error"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let api_errors_type_of_yojson json = api_errors_type_of_yojson (`List [json])
+let api_errors_type_of_yojson json = (`List [json])
 let api_errors_type_to_yojson e =
-    match api_errors_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3908,9 +3908,9 @@ type reporting_report_run_object = [
 | `ReportingPeriodreport_run [@printer fun fmt _ -> Format.pp_print_string fmt "reporting.report_run"] [@name "reporting.report_run"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let reporting_report_run_object_of_yojson json = reporting_report_run_object_of_yojson (`List [json])
+let reporting_report_run_object_of_yojson json = (`List [json])
 let reporting_report_run_object_to_yojson e =
-    match reporting_report_run_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3934,9 +3934,9 @@ type type_2 = [
 | `Wechat [@printer fun fmt _ -> Format.pp_print_string fmt "wechat"] [@name "wechat"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let type_2_of_yojson json = type_2_of_yojson (`List [json])
+let type_2_of_yojson json = (`List [json])
 let type_2_to_yojson e =
-    match type_2_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3948,9 +3948,9 @@ type three_d_secure_details_result = [
 | `Processing_error [@printer fun fmt _ -> Format.pp_print_string fmt "processing_error"] [@name "processing_error"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let three_d_secure_details_result_of_yojson json = three_d_secure_details_result_of_yojson (`List [json])
+let three_d_secure_details_result_of_yojson json = (`List [json])
 let three_d_secure_details_result_to_yojson e =
-    match three_d_secure_details_result_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3964,9 +3964,9 @@ type weekly_anchor = [
 | `Wednesday [@printer fun fmt _ -> Format.pp_print_string fmt "wednesday"] [@name "wednesday"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let weekly_anchor_of_yojson json = weekly_anchor_of_yojson (`List [json])
+let weekly_anchor_of_yojson json = (`List [json])
 let weekly_anchor_to_yojson e =
-    match weekly_anchor_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3976,9 +3976,9 @@ type payment_intent_payment_method_options_card_request_three_d_secure = [
 | `Challenge_only [@printer fun fmt _ -> Format.pp_print_string fmt "challenge_only"] [@name "challenge_only"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_intent_payment_method_options_card_request_three_d_secure_of_yojson json = payment_intent_payment_method_options_card_request_three_d_secure_of_yojson (`List [json])
+let payment_intent_payment_method_options_card_request_three_d_secure_of_yojson json = (`List [json])
 let payment_intent_payment_method_options_card_request_three_d_secure_to_yojson e =
-    match payment_intent_payment_method_options_card_request_three_d_secure_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3986,9 +3986,9 @@ type promotion_code_object = [
 | `Promotion_code [@printer fun fmt _ -> Format.pp_print_string fmt "promotion_code"] [@name "promotion_code"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let promotion_code_object_of_yojson json = promotion_code_object_of_yojson (`List [json])
+let promotion_code_object_of_yojson json = (`List [json])
 let promotion_code_object_to_yojson e =
-    match promotion_code_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -3998,9 +3998,9 @@ type issuing_authorization_status = [
 | `Reversed [@printer fun fmt _ -> Format.pp_print_string fmt "reversed"] [@name "reversed"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let issuing_authorization_status_of_yojson json = issuing_authorization_status_of_yojson (`List [json])
+let issuing_authorization_status_of_yojson json = (`List [json])
 let issuing_authorization_status_to_yojson e =
-    match issuing_authorization_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4011,9 +4011,9 @@ type end_behavior = [
 | `Renew [@printer fun fmt _ -> Format.pp_print_string fmt "renew"] [@name "renew"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let end_behavior_of_yojson json = end_behavior_of_yojson (`List [json])
+let end_behavior_of_yojson json = (`List [json])
 let end_behavior_to_yojson e =
-    match end_behavior_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4027,9 +4027,9 @@ type result_reason = [
 | `Rejected [@printer fun fmt _ -> Format.pp_print_string fmt "rejected"] [@name "rejected"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let result_reason_of_yojson json = result_reason_of_yojson (`List [json])
+let result_reason_of_yojson json = (`List [json])
 let result_reason_to_yojson e =
-    match result_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4039,9 +4039,9 @@ type payment_method_details_interac_present_receipt_account_type = [
 | `Unknown [@printer fun fmt _ -> Format.pp_print_string fmt "unknown"] [@name "unknown"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let payment_method_details_interac_present_receipt_account_type_of_yojson json = payment_method_details_interac_present_receipt_account_type_of_yojson (`List [json])
+let payment_method_details_interac_present_receipt_account_type_of_yojson json = (`List [json])
 let payment_method_details_interac_present_receipt_account_type_to_yojson e =
-    match payment_method_details_interac_present_receipt_account_type_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4050,9 +4050,9 @@ type inline_object_64_billing_cycle_anchor = [
 | `Unchanged [@printer fun fmt _ -> Format.pp_print_string fmt "unchanged"] [@name "unchanged"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let inline_object_64_billing_cycle_anchor_of_yojson json = inline_object_64_billing_cycle_anchor_of_yojson (`List [json])
+let inline_object_64_billing_cycle_anchor_of_yojson json = (`List [json])
 let inline_object_64_billing_cycle_anchor_to_yojson e =
-    match inline_object_64_billing_cycle_anchor_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4060,9 +4060,9 @@ type tax_deducted_at_source_object = [
 | `Tax_deducted_at_source [@printer fun fmt _ -> Format.pp_print_string fmt "tax_deducted_at_source"] [@name "tax_deducted_at_source"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let tax_deducted_at_source_object_of_yojson json = tax_deducted_at_source_object_of_yojson (`List [json])
+let tax_deducted_at_source_object_of_yojson json = (`List [json])
 let tax_deducted_at_source_object_to_yojson e =
-    match tax_deducted_at_source_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4070,9 +4070,9 @@ type alipay_account_object = [
 | `Alipay_account [@printer fun fmt _ -> Format.pp_print_string fmt "alipay_account"] [@name "alipay_account"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let alipay_account_object_of_yojson json = alipay_account_object_of_yojson (`List [json])
+let alipay_account_object_of_yojson json = (`List [json])
 let alipay_account_object_to_yojson e =
-    match alipay_account_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4080,9 +4080,9 @@ type application_object = [
 | `Application [@printer fun fmt _ -> Format.pp_print_string fmt "application"] [@name "application"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let application_object_of_yojson json = application_object_of_yojson (`List [json])
+let application_object_of_yojson json = (`List [json])
 let application_object_to_yojson e =
-    match application_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4104,9 +4104,9 @@ type legal_entity_company_structure = [
 | `Unincorporated_non_profit [@printer fun fmt _ -> Format.pp_print_string fmt "unincorporated_non_profit"] [@name "unincorporated_non_profit"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let legal_entity_company_structure_of_yojson json = legal_entity_company_structure_of_yojson (`List [json])
+let legal_entity_company_structure_of_yojson json = (`List [json])
 let legal_entity_company_structure_to_yojson e =
-    match legal_entity_company_structure_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4117,9 +4117,9 @@ type network_status = [
 | `Revoked [@printer fun fmt _ -> Format.pp_print_string fmt "revoked"] [@name "revoked"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let network_status_of_yojson json = network_status_of_yojson (`List [json])
+let network_status_of_yojson json = (`List [json])
 let network_status_to_yojson e =
-    match network_status_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4129,9 +4129,9 @@ type refund_attributes_method = [
 | `None [@printer fun fmt _ -> Format.pp_print_string fmt "none"] [@name "none"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let refund_attributes_method_of_yojson json = refund_attributes_method_of_yojson (`List [json])
+let refund_attributes_method_of_yojson json = (`List [json])
 let refund_attributes_method_to_yojson e =
-    match refund_attributes_method_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4426,9 +4426,9 @@ type allowed_categories = [
 | `Wrecking_and_salvage_yards [@printer fun fmt _ -> Format.pp_print_string fmt "wrecking_and_salvage_yards"] [@name "wrecking_and_salvage_yards"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let allowed_categories_of_yojson json = allowed_categories_of_yojson (`List [json])
+let allowed_categories_of_yojson json = (`List [json])
 let allowed_categories_to_yojson e =
-    match allowed_categories_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4436,9 +4436,9 @@ type deleted_invoice_object = [
 | `Invoice [@printer fun fmt _ -> Format.pp_print_string fmt "invoice"] [@name "invoice"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let deleted_invoice_object_of_yojson json = deleted_invoice_object_of_yojson (`List [json])
+let deleted_invoice_object_of_yojson json = (`List [json])
 let deleted_invoice_object_to_yojson e =
-    match deleted_invoice_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4446,9 +4446,9 @@ type three_d_secure_object = [
 | `Three_d_secure [@printer fun fmt _ -> Format.pp_print_string fmt "three_d_secure"] [@name "three_d_secure"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let three_d_secure_object_of_yojson json = three_d_secure_object_of_yojson (`List [json])
+let three_d_secure_object_of_yojson json = (`List [json])
 let three_d_secure_object_to_yojson e =
-    match three_d_secure_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4458,9 +4458,9 @@ type setup_intent_cancellation_reason = [
 | `Requested_by_customer [@printer fun fmt _ -> Format.pp_print_string fmt "requested_by_customer"] [@name "requested_by_customer"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let setup_intent_cancellation_reason_of_yojson json = setup_intent_cancellation_reason_of_yojson (`List [json])
+let setup_intent_cancellation_reason_of_yojson json = (`List [json])
 let setup_intent_cancellation_reason_to_yojson e =
-    match setup_intent_cancellation_reason_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4469,9 +4469,9 @@ type round = [
 | `Up [@printer fun fmt _ -> Format.pp_print_string fmt "up"] [@name "up"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let round_of_yojson json = round_of_yojson (`List [json])
+let round_of_yojson json = (`List [json])
 let round_to_yojson e =
-    match round_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4479,9 +4479,9 @@ type account_object = [
 | `Account [@printer fun fmt _ -> Format.pp_print_string fmt "account"] [@name "account"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let account_object_of_yojson json = account_object_of_yojson (`List [json])
+let account_object_of_yojson json = (`List [json])
 let account_object_to_yojson e =
-    match account_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json
 
@@ -4489,8 +4489,8 @@ type customer_object = [
 | `Customer [@printer fun fmt _ -> Format.pp_print_string fmt "customer"] [@name "customer"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let customer_object_of_yojson json = customer_object_of_yojson (`List [json])
+let customer_object_of_yojson json = (`List [json])
 let customer_object_to_yojson e =
-    match customer_object_to_yojson e with
+    match e with
     | `List [json] -> json
     | json -> json

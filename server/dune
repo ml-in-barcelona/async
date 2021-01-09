@@ -2,5 +2,5 @@
  (public_name async_app)
  (name main)
  (flags (:standard -w -27))
- (libraries async_app opium)
+ (libraries async_app opium services)
 )

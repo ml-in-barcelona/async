@@ -7,11 +7,8 @@
  *)
 
 type t = {
-    (* Business information about the account. *)
-    business_profile: Any_ofaccount_business_profile.t option [@default None];
     (* The business type. *)
     business_type: Enums.business_type option [@default None];
-    capabilities: Account_capabilities.t option [@default None];
     (* Whether the account can create live charges. *)
     charges_enabled: bool option [@default None];
     company: Legal_entity_company.t option [@default None];
@@ -25,20 +22,15 @@ type t = {
     details_submitted: bool option [@default None];
     (* The primary user's email address. *)
     email: string option [@default None];
-    external_accounts: External_account_list_1.t option [@default None];
     (* Unique identifier for the object. *)
     id: string;
     individual: Person.t option [@default None];
     (* Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. *)
     metadata: (string * string) list;
     (* String representing the object's type. Objects of the same type share the same value. *)
-    _object: Enums.account_object[@default `Account];
+    _object: Enums.account_object [@default `Account];
     (* Whether Stripe can send payouts to this account. *)
     payouts_enabled: bool option [@default None];
-    requirements: Account_requirements.t option [@default None];
-    (* Options for customizing how the account functions within Stripe. *)
-    settings: Any_ofaccount_settings.t option [@default None];
-    tos_acceptance: Account_tos_acceptance.t option [@default None];
     (* The Stripe account type. Can be `standard`, `express`, or `custom`. *)
     _type: Enums.type_0 option [@default None];
 } [@@deriving yojson { strict = false }, show ];;
@@ -66,4 +58,3 @@ let create (id : string) (_object : Enums.account_object) : t = {
     tos_acceptance = None;
     _type = None;
 }
-
