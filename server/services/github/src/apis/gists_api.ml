@@ -168,14 +168,14 @@ let gists_unstar ~gist_id =
     Cohttp_lwt_unix.Client.call `DELETE uri ~headers >>= fun (resp, body) ->
     Request.handle_unit_response resp
 
-let gists_update ~gist_id ~unknown_base_type () =
+(* let gists_update ~gist_id ~unknown_base_type () =
     let open Lwt in
     let uri = Request.build_uri "/gists/{gist_id}" in
     let headers = Request.default_headers in
     let uri = Request.replace_path_param uri "gist_id" (fun x -> x) gist_id in
     let body = Request.write_as_json_body UNKNOWN_BASE_TYPE.to_yojson unknown_base_type in
     Cohttp_lwt_unix.Client.call `PATCH uri ~headers ~body >>= fun (resp, body) ->
-    Request.read_json_body_as (JsonSupport.unwrap Gist_full.of_yojson) resp body
+    Request.read_json_body_as (JsonSupport.unwrap Gist_full.of_yojson) resp body *)
 
 let gists_update_comment ~gist_id ~comment_id ~inline_object_29_t () =
     let open Lwt in

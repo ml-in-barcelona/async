@@ -1507,7 +1507,7 @@ let issuer_fraud_record_object_to_yojson e =
 type invoice_status = [
 | `Deleted [@printer fun fmt _ -> Format.pp_print_string fmt "deleted"] [@name "deleted"]
 | `Draft [@printer fun fmt _ -> Format.pp_print_string fmt "draft"] [@name "draft"]
-| `_open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
+| `Open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
 | `Paid [@printer fun fmt _ -> Format.pp_print_string fmt "paid"] [@name "paid"]
 | `Uncollectible [@printer fun fmt _ -> Format.pp_print_string fmt "uncollectible"] [@name "uncollectible"]
 | `Void [@printer fun fmt _ -> Format.pp_print_string fmt "void"] [@name "void"]
@@ -2785,7 +2785,7 @@ let payment_status_to_yojson e =
 
 type status_2 = [
 | `Draft [@printer fun fmt _ -> Format.pp_print_string fmt "draft"] [@name "draft"]
-| `_open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
+| `Open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
 | `Paid [@printer fun fmt _ -> Format.pp_print_string fmt "paid"] [@name "paid"]
 | `Uncollectible [@printer fun fmt _ -> Format.pp_print_string fmt "uncollectible"] [@name "uncollectible"]
 | `Void [@printer fun fmt _ -> Format.pp_print_string fmt "void"] [@name "void"]

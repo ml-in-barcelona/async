@@ -5,8 +5,10 @@
  *
  *)
 
+type unknown_base_type
+
 val projects_add_collaborator : project_id:int32 -> username:string -> inline_object_62_t:Inline_object_62.t -> unit -> unit Lwt.t
-val projects_create_card : column_id:int32 -> unknown_base_type:UNKNOWN_BASE_TYPE -> unit -> Project_card.t Lwt.t
+val projects_create_card : column_id:int32 -> unknown_base_type -> unit -> Project_card.t Lwt.t
 val projects_create_column : project_id:int32 -> inline_object_63_t:Inline_object_63.t -> unit -> Project_column.t Lwt.t
 val projects_create_for_authenticated_user : inline_object_170_t:Inline_object_170.t -> unit -> Project.t Lwt.t
 val projects_create_for_org : org:string -> inline_object_44_t:Inline_object_44.t -> unit -> Project.t Lwt.t

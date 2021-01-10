@@ -73,7 +73,7 @@ let activity_list_events_for_authenticated_user ~username ?(per_page = 30l) ?(pa
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as_list_of (JsonSupport.unwrap Event.of_yojson) resp body
 
-let activity_list_notifications_for_authenticated_user ?(all = false) ?(participating = false) ?since ?before ?(per_page = 30l) ?(page = 1l) () =
+(* let activity_list_notifications_for_authenticated_user ?(all = false) ?(participating = false) ?since ?before ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/notifications" in
     let headers = Request.default_headers in
@@ -84,7 +84,7 @@ let activity_list_notifications_for_authenticated_user ?(all = false) ?(particip
     let uri = Request.add_query_param uri "per_page" Int32.to_string per_page in
     let uri = Request.add_query_param uri "page" Int32.to_string page in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as_list_of (JsonSupport.unwrap Thread.of_yojson) resp body
+    Request.read_json_body_as_list_of (JsonSupport.unwrap Thread.of_yojson) resp body *)
 
 let activity_list_org_events_for_authenticated_user ~username ~org ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
@@ -168,7 +168,7 @@ let activity_list_repo_events ~owner ~repo ?(per_page = 30l) ?(page = 1l) () =
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as_list_of (JsonSupport.unwrap Event.of_yojson) resp body
 
-let activity_list_repo_notifications_for_authenticated_user ~owner ~repo ?(all = false) ?(participating = false) ?since ?before ?(per_page = 30l) ?(page = 1l) () =
+(* let activity_list_repo_notifications_for_authenticated_user ~owner ~repo ?(all = false) ?(participating = false) ?since ?before ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/repos/{owner}/{repo}/notifications" in
     let headers = Request.default_headers in
@@ -181,7 +181,7 @@ let activity_list_repo_notifications_for_authenticated_user ~owner ~repo ?(all =
     let uri = Request.add_query_param uri "per_page" Int32.to_string per_page in
     let uri = Request.add_query_param uri "page" Int32.to_string page in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as_list_of (JsonSupport.unwrap Thread.of_yojson) resp body
+    Request.read_json_body_as_list_of (JsonSupport.unwrap Thread.of_yojson) resp body *)
 
 let activity_list_repos_starred_by_authenticated_user ?(sort = `Created) ?(direction = `Desc) ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in

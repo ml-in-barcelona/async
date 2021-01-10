@@ -49,7 +49,7 @@ type t = {
 } [@@deriving yojson { strict = false }, show ];;
 
 (** An invocation of a workflow *)
-let create (id : int32) (node_id : string) (head_branch : string option) (head_sha : string) (run_number : int32) (event : string) (status : string option) (conclusion : string option) (workflow_id : int32) (url : string) (html_url : string) (pull_requests : Pull_request_minimal.t list option) (created_at : string option) (updated_at : string option) (jobs_url : string) (logs_url : string) (check_suite_url : string) (artifacts_url : string) (cancel_url : string) (rerun_url : string) (workflow_url : string) (head_commit : Simple_commit.t) (repository : Minimal_repository.t) (head_repository : Minimal_repository.t) : t = {
+let create (id : int32) (node_id : string) (head_branch : string option) (head_sha : string) (run_number : int32) (event : string) (status : string option) (conclusion : string option) (workflow_id : int32) (url : string) (html_url : string) (pull_requests : Pull_request_minimal.t list) (created_at : string option) (updated_at : string option) (jobs_url : string) (logs_url : string) (check_suite_url : string) (artifacts_url : string) (cancel_url : string) (rerun_url : string) (workflow_url : string) (head_commit : Simple_commit.t) (repository : Minimal_repository.t) (head_repository : Minimal_repository.t) : t = {
     id = id;
     name = None;
     node_id = node_id;

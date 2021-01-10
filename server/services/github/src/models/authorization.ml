@@ -25,7 +25,7 @@ type t = {
 } [@@deriving yojson { strict = false }, show ];;
 
 (** The authorization for an OAuth app, GitHub App, or a Personal Access Token. *)
-let create (id : int32) (url : string) (scopes : string list option) (token : string) (token_last_eight : string option) (hashed_token : string option) (app : Authorization_app.t) (note : string option) (note_url : string option) (updated_at : string) (created_at : string) (fingerprint : string option) : t = {
+let create (id : int32) (url : string) (scopes : string list) (token : string) (token_last_eight : string option) (hashed_token : string option) (app : Authorization_app.t) (note : string option) (note_url : string option) (updated_at : string) (created_at : string) (fingerprint : string option) : t = {
     id = id;
     url = url;
     scopes = scopes;

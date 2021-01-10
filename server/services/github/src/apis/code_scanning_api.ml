@@ -15,16 +15,16 @@ let code_scanning_get_alert ~owner ~repo ~alert_number =
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Code_scanning_alert_code_scanning_alert.of_yojson) resp body
 
-let code_scanning_list_alerts_for_repo ~owner ~repo ?state ?ref () =
+(* let code_scanning_list_alerts_for_repo ~owner ~repo ?state ?ref () =
     let open Lwt in
     let uri = Request.build_uri "/repos/{owner}/{repo}/code-scanning/alerts" in
     let headers = Request.default_headers in
     let uri = Request.replace_path_param uri "owner" (fun x -> x) owner in
     let uri = Request.replace_path_param uri "repo" (fun x -> x) repo in
-    let uri = Request.maybe_add_query_param uri "state"  state in
+    let uri = Request.maybe_add_query_param uri "state" (fun x -> x) state in
     let uri = Request.maybe_add_query_param uri "ref" (fun x -> x) ref in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as_list_of (JsonSupport.unwrap Code_scanning_alert_code_scanning_alert_items.of_yojson) resp body
+    Request.read_json_body_as_list_of (JsonSupport.unwrap Code_scanning_alert_code_scanning_alert_items.of_yojson) resp body *)
 
 let code_scanning_list_recent_analyses ~owner ~repo ?ref ?tool_name () =
     let open Lwt in

@@ -123,7 +123,7 @@ let pulls_get_review_comment ~owner ~repo ~comment_id =
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Pull_request_review_comment.of_yojson) resp body
 
-let pulls_list ~owner ~repo ?(state = `_open) ?head ?base ?(sort = `Created) ?direction ?(per_page = 30l) ?(page = 1l) () =
+let pulls_list ~owner ~repo ?(state = `Open) ?head ?base ?(sort = `Created) ?direction ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/repos/{owner}/{repo}/pulls" in
     let headers = Request.default_headers in

@@ -5,13 +5,13 @@
  *
  *)
 
-let users_add_email_for_authenticated ~unknown_base_type () =
+(* let users_add_email_for_authenticated ~unknown_base_type () =
     let open Lwt in
     let uri = Request.build_uri "/user/emails" in
     let headers = Request.default_headers in
     let body = Request.write_as_json_body UNKNOWN_BASE_TYPE.to_yojson unknown_base_type in
     Cohttp_lwt_unix.Client.call `POST uri ~headers ~body >>= fun (resp, body) ->
-    Request.read_json_body_as_list_of (JsonSupport.unwrap Email.of_yojson) resp body
+    Request.read_json_body_as_list_of (JsonSupport.unwrap Email.of_yojson) resp body *)
 
 let users_check_following_for_user ~username ~target_user =
     let open Lwt in
@@ -46,13 +46,13 @@ let users_create_public_ssh_key_for_authenticated ~inline_object_168_t () =
     Cohttp_lwt_unix.Client.call `POST uri ~headers ~body >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Key.of_yojson) resp body
 
-let users_delete_email_for_authenticated ~unknown_base_type () =
+(* let users_delete_email_for_authenticated ~unknown_base_type () =
     let open Lwt in
     let uri = Request.build_uri "/user/emails" in
     let headers = Request.default_headers in
     let body = Request.write_as_json_body UNKNOWN_BASE_TYPE.to_yojson unknown_base_type in
     Cohttp_lwt_unix.Client.call `DELETE uri ~headers ~body >>= fun (resp, body) ->
-    Request.handle_unit_response resp
+    Request.handle_unit_response resp *)
 
 let users_delete_gpg_key_for_authenticated ~gpg_key_id =
     let open Lwt in

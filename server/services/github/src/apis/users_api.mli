@@ -5,12 +5,14 @@
  *
  *)
 
-val users_add_email_for_authenticated : unknown_base_type:UNKNOWN_BASE_TYPE -> unit -> Email.t list Lwt.t
+type unknown_base_type
+
+val users_add_email_for_authenticated : unknown_base_type -> unit -> Email.t list Lwt.t
 val users_check_following_for_user : username:string -> target_user:string -> unit Lwt.t
 val users_check_person_is_followed_by_authenticated : username:string -> unit Lwt.t
 val users_create_gpg_key_for_authenticated : inline_object_167_t:Inline_object_167.t -> unit -> Gpg_key.t Lwt.t
 val users_create_public_ssh_key_for_authenticated : inline_object_168_t:Inline_object_168.t -> unit -> Key.t Lwt.t
-val users_delete_email_for_authenticated : unknown_base_type:UNKNOWN_BASE_TYPE -> unit -> unit Lwt.t
+val users_delete_email_for_authenticated : unknown_base_type -> unit -> unit Lwt.t
 val users_delete_gpg_key_for_authenticated : gpg_key_id:int32 -> unit Lwt.t
 val users_delete_public_ssh_key_for_authenticated : key_id:int32 -> unit Lwt.t
 val users_follow : username:string -> unit Lwt.t

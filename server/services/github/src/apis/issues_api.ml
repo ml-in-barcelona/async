@@ -158,7 +158,7 @@ let issues_get_milestone ~owner ~repo ~milestone_number =
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Milestone.of_yojson) resp body
 
-let issues_list ?(filter = `Assigned) ?(state = `_open) ?labels ?(sort = `Created) ?(direction = `Desc) ?since ?collab ?orgs ?owned ?pulls ?(per_page = 30l) ?(page = 1l) () =
+let issues_list ?(filter = `Assigned) ?(state = `Open) ?labels ?(sort = `Created) ?(direction = `Desc) ?since ?collab ?orgs ?owned ?pulls ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/issues" in
     let headers = Request.default_headers in
@@ -250,7 +250,7 @@ let issues_list_events_for_timeline ~owner ~repo ~issue_number ?(per_page = 30l)
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as_list_of (JsonSupport.unwrap Issue_event_for_issue.of_yojson) resp body
 
-let issues_list_for_authenticated_user ?(filter = `Assigned) ?(state = `_open) ?labels ?(sort = `Created) ?(direction = `Desc) ?since ?(per_page = 30l) ?(page = 1l) () =
+let issues_list_for_authenticated_user ?(filter = `Assigned) ?(state = `Open) ?labels ?(sort = `Created) ?(direction = `Desc) ?since ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/user/issues" in
     let headers = Request.default_headers in
@@ -265,7 +265,7 @@ let issues_list_for_authenticated_user ?(filter = `Assigned) ?(state = `_open) ?
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as_list_of (JsonSupport.unwrap Issue.of_yojson) resp body
 
-let issues_list_for_org ~org ?(filter = `Assigned) ?(state = `_open) ?labels ?(sort = `Created) ?(direction = `Desc) ?since ?(per_page = 30l) ?(page = 1l) () =
+let issues_list_for_org ~org ?(filter = `Assigned) ?(state = `Open) ?labels ?(sort = `Created) ?(direction = `Desc) ?since ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/orgs/{org}/issues" in
     let headers = Request.default_headers in
@@ -281,7 +281,7 @@ let issues_list_for_org ~org ?(filter = `Assigned) ?(state = `_open) ?labels ?(s
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as_list_of (JsonSupport.unwrap Issue.of_yojson) resp body
 
-let issues_list_for_repo ~owner ~repo ?milestone ?(state = `_open) ?assignee ?creator ?mentioned ?labels ?(sort = `Created) ?(direction = `Desc) ?since ?(per_page = 30l) ?(page = 1l) () =
+let issues_list_for_repo ~owner ~repo ?milestone ?(state = `Open) ?assignee ?creator ?mentioned ?labels ?(sort = `Created) ?(direction = `Desc) ?since ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/repos/{owner}/{repo}/issues" in
     let headers = Request.default_headers in
@@ -336,7 +336,7 @@ let issues_list_labels_on_issue ~owner ~repo ~issue_number ?(per_page = 30l) ?(p
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as_list_of (JsonSupport.unwrap Label.of_yojson) resp body
 
-let issues_list_milestones ~owner ~repo ?(state = `_open) ?(sort = `Due_on) ?(direction = `Asc) ?(per_page = 30l) ?(page = 1l) () =
+let issues_list_milestones ~owner ~repo ?(state = `Open) ?(sort = `Due_on) ?(direction = `Asc) ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/repos/{owner}/{repo}/milestones" in
     let headers = Request.default_headers in

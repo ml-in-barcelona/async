@@ -94,7 +94,7 @@ let conclusion_to_yojson e =
 type visibility = [
 | `All [@printer fun fmt _ -> Format.pp_print_string fmt "all"] [@name "all"]
 | `Public [@printer fun fmt _ -> Format.pp_print_string fmt "public"] [@name "public"]
-| `_private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
+| `Private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
 ] [@@deriving yojson, show { with_path = false }];;
 
 let visibility_of_yojson json = visibility_of_yojson (`List [json])
@@ -164,7 +164,7 @@ let sort_1_to_yojson e =
 type inline_object_34_visibility = [
 | `Selected [@printer fun fmt _ -> Format.pp_print_string fmt "selected"] [@name "selected"]
 | `All [@printer fun fmt _ -> Format.pp_print_string fmt "all"] [@name "all"]
-| `_private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
+| `Private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
 ] [@@deriving yojson, show { with_path = false }];;
 
 let inline_object_34_visibility_of_yojson json = inline_object_34_visibility_of_yojson (`List [json])
@@ -240,7 +240,7 @@ type type_0 = [
 | `All [@printer fun fmt _ -> Format.pp_print_string fmt "all"] [@name "all"]
 | `Owner [@printer fun fmt _ -> Format.pp_print_string fmt "owner"] [@name "owner"]
 | `Public [@printer fun fmt _ -> Format.pp_print_string fmt "public"] [@name "public"]
-| `_private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
+| `Private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
 | `Member [@printer fun fmt _ -> Format.pp_print_string fmt "member"] [@name "member"]
 ] [@@deriving yojson, show { with_path = false }];;
 
@@ -284,7 +284,7 @@ let mode_to_yojson e =
 
 type members_allowed_repository_creation_type = [
 | `All [@printer fun fmt _ -> Format.pp_print_string fmt "all"] [@name "all"]
-| `_private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
+| `Private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
 | `None [@printer fun fmt _ -> Format.pp_print_string fmt "none"] [@name "none"]
 ] [@@deriving yojson, show { with_path = false }];;
 
@@ -423,7 +423,7 @@ let inline_object_145_state_to_yojson e =
     | json -> json
 
 type milestone_state = [
-| `_open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
+| `Open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
 | `Closed [@printer fun fmt _ -> Format.pp_print_string fmt "closed"] [@name "closed"]
 ] [@@deriving yojson, show { with_path = false }];;
 
@@ -462,7 +462,7 @@ let role_0_to_yojson e =
     | json -> json
 
 type code_scanning_alert_set_state = [
-| `_open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
+| `Open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
 | `Dismissed [@printer fun fmt _ -> Format.pp_print_string fmt "dismissed"] [@name "dismissed"]
 ] [@@deriving yojson, show { with_path = false }];;
 
@@ -522,7 +522,7 @@ let order_to_yojson e =
     | json -> json
 
 type state_1 = [
-| `_open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
+| `Open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
 | `Closed [@printer fun fmt _ -> Format.pp_print_string fmt "closed"] [@name "closed"]
 | `All [@printer fun fmt _ -> Format.pp_print_string fmt "all"] [@name "all"]
 ] [@@deriving yojson, show { with_path = false }];;
@@ -547,7 +547,7 @@ let page_status_to_yojson e =
 
 type organization_actions_secret_visibility = [
 | `All [@printer fun fmt _ -> Format.pp_print_string fmt "all"] [@name "all"]
-| `_private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
+| `Private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
 | `Selected [@printer fun fmt _ -> Format.pp_print_string fmt "selected"] [@name "selected"]
 ] [@@deriving yojson, show { with_path = false }];;
 
@@ -751,7 +751,7 @@ let sort_8_to_yojson e =
 type type_2 = [
 | `All [@printer fun fmt _ -> Format.pp_print_string fmt "all"] [@name "all"]
 | `Public [@printer fun fmt _ -> Format.pp_print_string fmt "public"] [@name "public"]
-| `_private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
+| `Private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
 | `Forks [@printer fun fmt _ -> Format.pp_print_string fmt "forks"] [@name "forks"]
 | `Sources [@printer fun fmt _ -> Format.pp_print_string fmt "sources"] [@name "sources"]
 | `Member [@printer fun fmt _ -> Format.pp_print_string fmt "member"] [@name "member"]
@@ -778,7 +778,7 @@ let environment_to_yojson e =
 
 type inline_object_45_visibility = [
 | `Public [@printer fun fmt _ -> Format.pp_print_string fmt "public"] [@name "public"]
-| `_private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
+| `Private [@printer fun fmt _ -> Format.pp_print_string fmt "private"] [@name "private"]
 | `Visibility [@printer fun fmt _ -> Format.pp_print_string fmt "visibility"] [@name "visibility"]
 | `Internal [@printer fun fmt _ -> Format.pp_print_string fmt "internal"] [@name "internal"]
 ] [@@deriving yojson, show { with_path = false }];;
@@ -868,7 +868,7 @@ let sort_9_to_yojson e =
     | json -> json
 
 type code_scanning_alert_state = [
-| `_open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
+| `Open [@printer fun fmt _ -> Format.pp_print_string fmt "open"] [@name "open"]
 | `Dismissed [@printer fun fmt _ -> Format.pp_print_string fmt "dismissed"] [@name "dismissed"]
 | `Fixed [@printer fun fmt _ -> Format.pp_print_string fmt "fixed"] [@name "fixed"]
 ] [@@deriving yojson, show { with_path = false }];;

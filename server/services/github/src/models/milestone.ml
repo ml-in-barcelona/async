@@ -15,7 +15,7 @@ type t = {
     (* The number of the milestone. *)
     number: int32;
     (* The state of the milestone. *)
-    state: Enums.milestone_state[@default `_open];
+    state: Enums.milestone_state[@default `Open];
     (* The title of the milestone. *)
     title: string;
     description: string option;

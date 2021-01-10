@@ -15,14 +15,14 @@ let projects_add_collaborator ~project_id ~username ~inline_object_62_t () =
     Cohttp_lwt_unix.Client.call `PUT uri ~headers ~body >>= fun (resp, body) ->
     Request.handle_unit_response resp
 
-let projects_create_card ~column_id ~unknown_base_type () =
+(* let projects_create_card ~column_id ~unknown_base_type () =
     let open Lwt in
     let uri = Request.build_uri "/projects/columns/{column_id}/cards" in
     let headers = Request.default_headers in
     let uri = Request.replace_path_param uri "column_id" Int32.to_string column_id in
     let body = Request.write_as_json_body UNKNOWN_BASE_TYPE.to_yojson unknown_base_type in
     Cohttp_lwt_unix.Client.call `POST uri ~headers ~body >>= fun (resp, body) ->
-    Request.read_json_body_as (JsonSupport.unwrap Project_card.of_yojson) resp body
+    Request.read_json_body_as (JsonSupport.unwrap Project_card.of_yojson) resp body *)
 
 let projects_create_column ~project_id ~inline_object_63_t () =
     let open Lwt in
@@ -149,7 +149,7 @@ let projects_list_columns ~project_id ?(per_page = 30l) ?(page = 1l) () =
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as_list_of (JsonSupport.unwrap Project_column.of_yojson) resp body
 
-let projects_list_for_org ~org ?(state = `_open) ?(per_page = 30l) ?(page = 1l) () =
+let projects_list_for_org ~org ?(state = `Open) ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/orgs/{org}/projects" in
     let headers = Request.default_headers in
@@ -160,7 +160,7 @@ let projects_list_for_org ~org ?(state = `_open) ?(per_page = 30l) ?(page = 1l) 
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as_list_of (JsonSupport.unwrap Project.of_yojson) resp body
 
-let projects_list_for_repo ~owner ~repo ?(state = `_open) ?(per_page = 30l) ?(page = 1l) () =
+let projects_list_for_repo ~owner ~repo ?(state = `Open) ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/repos/{owner}/{repo}/projects" in
     let headers = Request.default_headers in
@@ -172,7 +172,7 @@ let projects_list_for_repo ~owner ~repo ?(state = `_open) ?(per_page = 30l) ?(pa
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as_list_of (JsonSupport.unwrap Project.of_yojson) resp body
 
-let projects_list_for_user ~username ?(state = `_open) ?(per_page = 30l) ?(page = 1l) () =
+let projects_list_for_user ~username ?(state = `Open) ?(per_page = 30l) ?(page = 1l) () =
     let open Lwt in
     let uri = Request.build_uri "/users/{username}/projects" in
     let headers = Request.default_headers in

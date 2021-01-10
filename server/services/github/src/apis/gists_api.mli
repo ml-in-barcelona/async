@@ -23,5 +23,5 @@ val gists_list_public : ?since:string -> ?per_page:int32 -> ?page:int32 -> unit 
 val gists_list_starred : ?since:string -> ?per_page:int32 -> ?page:int32 -> unit -> Base_gist.t list Lwt.t
 val gists_star : gist_id:string -> unit Lwt.t
 val gists_unstar : gist_id:string -> unit Lwt.t
-val gists_update : gist_id:string -> unknown_base_type:UNKNOWN_BASE_TYPE -> unit -> Gist_full.t Lwt.t
+val gists_update : gist_id:string -> unknown_base_type -> unit -> Gist_full.t Lwt.t
 val gists_update_comment : gist_id:string -> comment_id:int32 -> inline_object_29_t:Inline_object_29.t -> unit -> Gist_comment.t Lwt.t
