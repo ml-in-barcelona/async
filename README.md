@@ -36,6 +36,10 @@ Build client:
 yarn
 ```
 ```
+# build tailwindcss styles
+yarn styles
+```
+```
 yarn webpack:dev
 ```
 
